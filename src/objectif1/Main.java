@@ -42,12 +42,12 @@ public class Main {
 		
 		//Behavior bSearchLine = new SearchLine(pilot, color, ts);
 		//Behavior bFollowBlackLine = new FollowBlackLine(color, ts);
-		//Behavior bCollision = new HitWall(ts, s);
+		Behavior bCollision = new HitSomething(ts, s);
 		Behavior bStop = new StopRobot(ts, color, s);
 		
 		//bArray[0] = bSearchLine;
 		//bArray[1] = bFollowBlackLine;
-		//bArray[2] = bCollision;
+		bArray[2] = bCollision;
 		bArray[3] = bStop;
 		
 		Arbitrator arby= new Arbitrator(bArray);
