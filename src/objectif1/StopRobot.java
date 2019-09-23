@@ -1,7 +1,6 @@
 package objectif1;
 
 import java.util.Arrays;
-
 import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.Motor;
@@ -20,13 +19,12 @@ public class StopRobot implements Behavior{
 	//private EV3UltrasonicSensor ultrasonic;
 	private EV3TouchSensor touch; 
 	private EV3ColorSensor color;
-	//private EV3GyroSensor gyro;
 	private float [] f;
 	private Arbitrator action;
 	
 	public StopRobot(EV3TouchSensor ts, EV3ColorSensor color, float [] s) {
 		this.touch= ts; this.color = color; this.f = s;
-		//this.ultrasonic = us; //this.gyro = gs;
+		//this.ultrasonic = us;
 	}
 	
 	public void setArbitrator (Arbitrator arby) {
@@ -53,7 +51,6 @@ public class StopRobot implements Behavior{
 		//ultrasonic.close();
 		color.close();
 		touch.close();
-		//gyro.close();
 		
 		action.stop();
 		System.exit(0);
