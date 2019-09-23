@@ -22,7 +22,7 @@ import lejos.robotics.subsumption.Behavior;
 //Pour l'instant c'est juste le main de l'exo pour comportements multiples
 public class Main {
 	public static void main(String[] args) {
-		LCD.drawString("TD Ligne noire", 0,4);
+		LCD.drawString("Go to the camp", 0,4);
         LCD.asyncRefresh();
         Button.waitForAnyPress();
         LCD.clear();
