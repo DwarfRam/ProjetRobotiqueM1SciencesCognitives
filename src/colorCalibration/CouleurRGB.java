@@ -8,8 +8,6 @@ import lejos.hardware.sensor.EV3ColorSensor;
 /**
  * Class for the calibration of color (Red, blue, green, white, orange and black)
  * 
- * 
- * @version 1.0
  *
  * @author Christian B.
  */
