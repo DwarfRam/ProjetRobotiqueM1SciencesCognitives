@@ -3,11 +3,9 @@ package objectif1;
 import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.Motor;
-/*
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
-*/
 import lejos.robotics.chassis.Chassis;
 import lejos.robotics.chassis.Wheel;
 import lejos.robotics.chassis.WheeledChassis;
@@ -30,28 +28,28 @@ public class Main {
         pilot.setLinearSpeed(30.);
         pilot.setAngularSpeed(30.);
         
-		//EV3TouchSensor ts= new EV3TouchSensor(SensorPort.S1);
-		//EV3ColorSensor color = new EV3ColorSensor(SensorPort.S3);
-		//float[] s = new float[4];							// 0..2 couleur, 3 ultrason
+		EV3TouchSensor ts= new EV3TouchSensor(SensorPort.S1);
+		EV3ColorSensor color = new EV3ColorSensor(SensorPort.S3);
+		float[] s = new float[4];							// 0..2 couleur, 3 ultrason
 		
 		Behavior[] bArray= new Behavior [4];				// tableau de 3 Behavior (= 3 comportements)
 		
 		//Behavior bSearchLine = new SearchLine(pilot, color, ts);
 		//Behavior bFollowBlackLine = new FollowBlackLine(color, ts);
 		//Behavior bCollision = new HitWall(ts, s);
-		//Behavior bStop = new StopRobot(ts, color, s);
+		Behavior bStop = new StopRobot(ts, color, s);
 		
 		//bArray[0] = bSearchLine;
 		//bArray[1] = bFollowBlackLine;
 		//bArray[2] = bCollision;
-		//bArray[3] = bStop;
+		bArray[3] = bStop;
 		
 		Arbitrator arby= new Arbitrator(bArray);
 		
-		//if (bStop instanceof StopRobot) {
-		//	StopRobot b = (StopRobot)bStop;
-		//	b.setArbitrator(arby);
-		//}
+		if (bStop instanceof StopRobot) {
+			StopRobot b = (StopRobot)bStop;
+			b.setArbitrator(arby);
+		}
 		
 		arby.go();
 	}
