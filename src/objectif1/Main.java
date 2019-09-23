@@ -15,8 +15,8 @@ import lejos.robotics.navigation.MovePilot;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 
+//Pour l'instant c'est juste le main de l'exo pour comportements multiples
 public class Main {
-
 	public static void main(String[] args) {
 		LCD.drawString("TD Ligne noire", 0,4);
         LCD.asyncRefresh();

@@ -8,10 +8,12 @@ import lejos.hardware.sensor.EV3ColorSensor;
 /**
  * Class for the calibration of color
  * 
+ * 
  * @version 1.0
  *
  * @author Christian B.
  */
+// Pour l'instant c'est juste la correction de l'affichage des couleurs sous format RGB
 public class CouleurRGB {
 	public static void main(String[] args) {
 		LCD.drawString("Calibration of color",0,0);
