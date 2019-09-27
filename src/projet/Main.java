@@ -26,7 +26,8 @@ public class Main {
         LCD.asyncRefresh();
         Button.waitForAnyPress();
         LCD.clear();
-                
+
+        
         Wheel wheel1 = WheeledChassis.modelWheel(Motor.B, 56.).offset(-60);
         Wheel wheel2 = WheeledChassis.modelWheel(Motor.C, 56.).offset(60);
         Chassis chassis = new WheeledChassis(new Wheel[]{wheel1, wheel2}, 2);
@@ -44,6 +45,10 @@ public class Main {
 		//Behavior bFollowBlackLine = new FollowBlackLine(color, ts);
 		Behavior bCollision = new HitSomething(ts, s);
 		Behavior bStop = new StopRobot(ts, color, s);
+		//Récupération camp
+
+		
+		
 		
 		//bArray[0] = bSearchLine;
 		//bArray[1] = bFollowBlackLine;
