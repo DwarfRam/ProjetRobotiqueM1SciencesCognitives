@@ -1,4 +1,4 @@
-package objectif1;
+package projet;
 
 import java.util.Arrays;
 import lejos.hardware.Button;

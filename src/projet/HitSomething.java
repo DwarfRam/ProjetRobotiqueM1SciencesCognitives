@@ -1,4 +1,4 @@
-package objectif1;
+package projet;
 
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.Motor;

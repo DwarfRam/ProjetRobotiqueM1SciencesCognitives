@@ -1,4 +1,4 @@
-package colorCalibration;
+package projet;
 
 import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
@@ -7,7 +7,7 @@ import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
 
 public class CalibrationCouleur {
-{
+	{
 	
 	LCD.drawString("Bonjour", 3, 4);
 	Button.waitForAnyPress();
@@ -23,8 +23,9 @@ public class CalibrationCouleur {
 	LCD.drawString("B: " + sample[2]*1000, 1, 3);
 	
 	//Vert
-	if ( (sample[0]*1000<95) && (sample[1]*1000>150) && (sample[1]*1000<170) && (sample[2]*1000<50)) 
+	if ( (sample[0]*1000<95) && (sample[1]*1000>150) && (sample[1]*1000<170) && (sample[2]*1000<50)) {
 		LCD.drawString("Case verte", 3, 4);
+	}
 	
 	//Bleu
 	else if ( (sample[0]*1000<95) && (sample[1]*1000<60) && (sample[2]*1000<100) && (sample[2]*1000<50)) 
@@ -48,6 +49,6 @@ public class CalibrationCouleur {
 	
 	Button.waitForAnyPress();
 	capteurCouleur.close();
-	
+		
 	}
 }
