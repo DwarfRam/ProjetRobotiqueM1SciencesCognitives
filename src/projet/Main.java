@@ -45,7 +45,7 @@ public class Main {
 		//Behavior bFollowBlackLine = new FollowBlackLine(color, ts);
 		Behavior bCollision = new HitSomething(ts, s);
 		Behavior bStop = new StopRobot(ts, color, s);
-		//Récupération camp
+		//Recuperation camp
 
 		
 		
