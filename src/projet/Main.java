@@ -22,6 +22,12 @@ import lejos.robotics.subsumption.Behavior;
 //Pour l'instant c'est juste le main de l'exo pour comportements multiples
 public class Main {
 	public static void main(String[] args) {
+		Environnement env1 = new Environnement();// à completer
+		Environnement env2 = new Environnement();
+		
+		Robot thenn = new Robot( "Thenn", false, env1);
+		Robot winterfell = new Robot( "Winterfell", true, env2);
+		
 		LCD.drawString("Go to the camp", 0,4);
         LCD.asyncRefresh();
         Button.waitForAnyPress();
