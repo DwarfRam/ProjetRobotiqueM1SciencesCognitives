@@ -18,7 +18,8 @@ public class Environnement {
 	public CaseEnvironnement getCase(){
 		return caseActuel;
 	}
-	public void setCase(int c){
+	public void setCase(int c, int cos){
 		caseActuel.setColor(c);
+		caseActuel.setCost(cos);
 	}
 }

@@ -47,7 +47,7 @@ public class Objectif1 implements Behavior {
 					}
 				}
 				if (valeur == Color.GREEN){
-					env.setCase(valeur); 
+					env.setCase(valeur, 1); 
 					while (valeur == Color.GREEN || valeur == Color.BLACK){
 						Motor.B.forward();
 						Motor.C.forward();
@@ -62,6 +62,7 @@ public class Objectif1 implements Behavior {
 							Motor.B.forward();
 							Motor.C.forward();
 						}
+						env.setCase(valeur, 1); 
 					}
 				}
 			}
@@ -71,6 +72,7 @@ public class Objectif1 implements Behavior {
 				Motor.B.forward();
 				Motor.C.forward();
 			}
+			env.setCase(valeur, 1); 
 			LCD.drawString("Vous etes arrivé au camp militaire", 3, 4); 
 		}
 		
