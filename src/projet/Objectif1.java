@@ -7,17 +7,22 @@ import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.Motor;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
+import lejos.robotics.chassis.Chassis;
+import lejos.robotics.chassis.Wheel;
+import lejos.robotics.chassis.WheeledChassis;
+import lejos.robotics.navigation.MovePilot;
 
 public class Objectif1 implements Behavior {
 	EV3ColorSensor Couleur = new EV3ColorSensor(SensorPort.S3);
 	
 	private Environnement env;
 	private boolean camp;
+	private MovePilot pilot;
 		
-	public Objectif1 (boolean c, Environnement e){
+	public Objectif1 (boolean c, Environnement e, MovePilot p){
 		this.camp = c;
 		this.env = e;
-
+		this.pilot = p;	
 	}
 
 
@@ -57,7 +62,7 @@ public class Objectif1 implements Behavior {
 							Motor.B.backward();
 							Motor.C.backward();
 						}
-						Motor.C.rotate(90, true); // a changer avec chassis..
+						pilot.rotate(90); // a changer avec chassis..
 						while (valeur == Color.RED){
 							Motor.B.forward();
 							Motor.C.forward();

@@ -45,12 +45,16 @@ public class Main {
 		EV3ColorSensor color = new EV3ColorSensor(SensorPort.S3);
 		float[] s = new float[4];							// 0..2 couleur, 3 ultrason
 		
+
+		
+		
 		Behavior[] bArray= new Behavior [4];				// tableau de 3 Behavior (= 3 comportements)
 		
 		//Behavior bSearchLine = new SearchLine(pilot, color, ts);
 		//Behavior bFollowBlackLine = new FollowBlackLine(color, ts);
 		Behavior bCollision = new HitSomething(ts, s);
 		Behavior bStop = new StopRobot(ts, color, s);
+		Behavior bObjectif1 = new Objectif1 (); //Ajouter paramètres 
 		//Recuperation camp
 
 		
