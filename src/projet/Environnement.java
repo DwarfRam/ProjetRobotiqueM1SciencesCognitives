@@ -9,6 +9,8 @@ public class Environnement {
 	private ArrayList<CaseEnvironnement> env = new ArrayList<CaseEnvironnement>();
 	private CaseEnvironnement start;
 	private CaseEnvironnement caseActuel;
+	private CaseEnvironnement carte [][];
+	private boolean t;
 	
 	public Environnement (ArrayList<CaseEnvironnement> map, CaseEnvironnement s){
 		start = s;
@@ -16,11 +18,8 @@ public class Environnement {
 		env = map;
 		// this.env = new CaseEnvironnement[7][5]; 
 		
-		//private int color;
-		private int carte [][];
-
-		public void carte(boolean t){	
-			carte = new int [6][4];	
+	
+			carte = new CaseEnvironnement [6][4];	
 			if (t == true) //Winterfell
 			{
 				carte [0][0]= Color.RED; //Camp militaire nord ouest 
@@ -72,18 +71,7 @@ public class Environnement {
 				carte [5][4]= Color.BLUE;
 				carte [6][4]= Color.BLUE;
 			}
-		}
-
-		//Getter
-		public int getColorCase(int abs, int ord){
-			return carte [abs][ord];
-		}
 		
-		//Setter
-		public void setColorCase(int abs, int ord, int color){
-			this.carte[abs][ord]= color;
-		}
-
 	}
 	public CaseEnvironnement getCase(){
 		return caseActuel;
