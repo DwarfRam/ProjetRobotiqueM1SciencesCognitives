@@ -10,9 +10,10 @@ public class Environnement {
 	private CaseEnvironnement start;
 	private CaseEnvironnement caseActuel;
 	
-	public Environnement (int c){
-		this.start.setColor(Color.WHITE);
+	public Environnement (ArrayList<CaseEnvironnement> map, CaseEnvironnement s){
+		start = s;
 		caseActuel = start;
+		env = map;
 		// this.env = new CaseEnvironnement[7][5]; 
 	}
 	public CaseEnvironnement getCase(){

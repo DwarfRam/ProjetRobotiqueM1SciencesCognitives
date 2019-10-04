@@ -1,11 +1,14 @@
 package projet;
 
+import java.util.ArrayList;
+
 import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.Motor;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
+import lejos.robotics.Color;
 import lejos.robotics.chassis.Chassis;
 import lejos.robotics.chassis.Wheel;
 import lejos.robotics.chassis.WheeledChassis;
@@ -22,8 +25,13 @@ import lejos.robotics.subsumption.Behavior;
 //Pour l'instant c'est juste le main de l'exo pour comportements multiples
 public class Main {
 	public static void main(String[] args) {
-		Environnement env1 = new Environnement();// à completer
-		Environnement env2 = new Environnement();
+		
+		ArrayList<CaseEnvironnement> map1 = new ArrayList<CaseEnvironnement>();
+		ArrayList<CaseEnvironnement> map2 = new ArrayList<CaseEnvironnement>();
+		CaseEnvironnement start1 = new CaseEnvironnement(Color.WHITE);
+		
+		Environnement env1 = new Environnement(map1,start1);
+		Environnement env2 = new Environnement(map2, start1);
 		
 		Robot thenn = new Robot( "Thenn", false, env1);
 		Robot winterfell = new Robot( "Winterfell", true, env2);

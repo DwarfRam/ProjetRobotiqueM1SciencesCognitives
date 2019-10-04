@@ -66,19 +66,19 @@ public class Objectif1 implements Behavior {
 						while (valeur == Color.RED){
 							Motor.B.forward();
 							Motor.C.forward();
-						}
+						} //peut etre rajouter d'avancer un peu pour bien etre sur la case?
 						env.setCase(valeur, 1); 
 					}
 				}
 			}
-			LCD.drawString("Vous etes arrivé au camp militaire", 3, 4); 
+			LCD.drawString("Vous etes arrive", 3, 4); 
 		} else { //Thenn
 			while (valeur != Color.RED){
 				Motor.B.forward();
 				Motor.C.forward();
 			}
 			env.setCase(valeur, 1); 
-			LCD.drawString("Vous etes arrivé au camp militaire", 3, 4); 
+			LCD.drawString("Vous etes arrive", 3, 4); 
 		}
 		
 
