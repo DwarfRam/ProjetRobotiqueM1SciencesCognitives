@@ -31,7 +31,7 @@ public class Main {
 		CaseEnvironnement start1 = new CaseEnvironnement(Color.WHITE);
 		
 		Environnement env1 = new Environnement(map1,start1);
-		Environnement env2 = new Environnement(map2, start1);
+		Environnement env2 = new Environnement(map2,start1);
 		
 		Robot thenn = new Robot( "Thenn", false, env1);
 		Robot winterfell = new Robot( "Winterfell", true, env2);
@@ -62,7 +62,7 @@ public class Main {
 		//Behavior bFollowBlackLine = new FollowBlackLine(color, ts);
 		Behavior bCollision = new HitSomething(ts, s);
 		Behavior bStop = new StopRobot(ts, color, s);
-		Behavior bObjectif1 = new Objectif1 (); //Ajouter paramètres 
+		Behavior bObjectif1 = new Objectif1 (); //Ajouter paramï¿½tres 
 		//Recuperation camp
 
 		

@@ -6,17 +6,14 @@ import lejos.robotics.Color;
 
 public class Environnement { 
 	
-	//private ArrayList<CaseEnvironnement> env = new ArrayList<CaseEnvironnement>();
 	private CaseEnvironnement start;
 	private CaseEnvironnement caseActuel;
-	private CaseEnvironnement [][] carte ;
-
+	private ArrayList<CaseEnvironnement> map;
 	
-	public Environnement ( CaseEnvironnement s){
+	public Environnement (ArrayList<CaseEnvironnement> environnement, CaseEnvironnement s){
 		start = s;
 		caseActuel = start;
-		//carte = c;
-		// this.env = new CaseEnvironnement[7][5]; 
+		map = environnement;
 	}
 	
 	public CaseEnvironnement getCase(){
@@ -27,8 +24,8 @@ public class Environnement {
 		caseActuel.setCost(cos);
 	}
 	
-	public CaseEnvironnement [][] getEnvironnement(){
-		return carte;
+	public ArrayList<CaseEnvironnement> getEnvironnement(){
+		return map;
 	}
 	
 	
