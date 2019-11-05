@@ -8,10 +8,16 @@ public class Environnement {
 	private CaseEnvironnement caseActuel;
 	private CaseEnvironnement [][] environnement ;
 	
-	public Environnement (CaseEnvironnement [][] map, CaseEnvironnement s){
-		this.start = s;
+	public Environnement (boolean team){
 		this.caseActuel = start;
-		this.environnement = map; 
+		this.environnement = new CaseEnvironnement [5][7]; 
+		if (team) 
+		{
+			this.start = new CaseEnvironnement(0);
+		}else
+		{
+			this.start = this.start = new CaseEnvironnement(0);;
+		}
 	}
 	
 	public CaseEnvironnement getActualCase(){

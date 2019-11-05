@@ -16,31 +16,28 @@ public class CaseEnvironnement {
 	public CaseEnvironnement(int col){
 		this.color = col;
 		this.size = 12;
-		this.cost = 1; //initialisation sur un case blanche
-		
-				
-//		switch(col) {
-//		  case 1: // red
-//			  this.cost = 1;
-//			  break;
-//		  case 2 : // green
-//			 this.cost = 1;
-//			 break;
-//		  case 3 : // orange
-//		    this.cost = 5;
-//		    break;
-//		  case 4 : // blue
-//		    this.cost = 10;
-//		    break;
-//		  case 5:  // black
-//		    this.cost = 12;
-//		    break;
-//		  case 0: // white
-//		    this.cost = 1;
-//		    break;
-//		  default:
-//			  this.cost = 1;
-//		}
+		switch(col) {
+		  case 1: // red
+			  this.cost = 1;
+			  break;
+		  case 2 : // green
+			 this.cost = 1;
+			 break;
+		  case 3 : // orange
+		    this.cost = 5;
+		    break;
+		  case 4 : // blue
+		    this.cost = 10;
+		    break;
+		  case 5:  // black
+		    this.cost = 12;
+		    break;
+		  case 0: // white
+		    this.cost = 1;
+		    break;
+		  default:
+			  this.cost = 1;
+		}
 	}
 	
 	public void setColor(int c){

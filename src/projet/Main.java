@@ -1,7 +1,5 @@
 package projet;
 
-import java.util.ArrayList;
-
 import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.Motor;
@@ -20,21 +18,13 @@ import lejos.robotics.subsumption.Behavior;
 public class Main {
 	public static void main(String[] args) {
 		
-		CaseEnvironnement map1 [][] = new CaseEnvironnement [5][7];
-		CaseEnvironnement map2 [][] = new CaseEnvironnement [5][7];
-		CaseEnvironnement start1 = new CaseEnvironnement(Color.WHITE);
-		
-		Environnement env1 = new Environnement(map1,start1);
-		Environnement env2 = new Environnement(map2, start1);
-		
-		Robot thenn = new Robot( "Thenn", false, env1);
-		Robot winterfell = new Robot( "Winterfell", true, env2);
+		Robot thenn = new Robot( "Thenn", false);
+		Robot winterfell = new Robot( "Winterfell", true);
 		
 		LCD.drawString("Go to the camp", 0,4);
         LCD.asyncRefresh();
         Button.waitForAnyPress();
         LCD.clear();
-
         
         Wheel wheel1 = WheeledChassis.modelWheel(Motor.B, 56.).offset(-60);
         Wheel wheel2 = WheeledChassis.modelWheel(Motor.C, 56.).offset(60);

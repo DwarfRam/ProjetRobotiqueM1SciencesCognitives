@@ -8,8 +8,15 @@ public class Robot {
 	private boolean team; 
 	private Environnement env;
 	
-	public Robot (String n, boolean t, Environnement e){
-		this.nom=n; this.team=t; this.env=e;
+	public Robot (String n, boolean t){
+		this.nom = n; this.team = t;
+		if (team)
+		{
+			this.env = new Environnement(this.team);
+		} else
+		{
+			this.env = new Environnement(this.team);
+		}
 	}
 	
 	//Getter
@@ -48,7 +55,7 @@ public class Robot {
 			this.env.setCase(1, 5, 2);
 			this.env.setCase(0, 5, 3); //camp militaire sud
 			this.env.setCase(2, 5, 4); 
-			this.env.setCase(6, 6, 0); //Départ Winterfell
+			this.env.setCase(6, 6, 0); //Dï¿½part Winterfell
 			this.env.setCase(1, 6, 1); 
 			this.env.setCase(1, 6, 2);
 			this.env.setCase(1, 6, 3);
@@ -61,7 +68,7 @@ public class Robot {
 			this.env.setCase(2, 0, 1); // Camp militaire nord ouest 
 			this.env.setCase(1, 0, 2);
 			this.env.setCase(1, 0, 3);
-			this.env.setCase(6, 0, 4); // Départ Thenn
+			this.env.setCase(6, 0, 4); // Dï¿½part Thenn
 			this.env.setCase(2, 1, 1); 
 			this.env.setCase(1, 1, 2);
 			this.env.setCase(1, 1, 3);
