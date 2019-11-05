@@ -19,15 +19,13 @@ public class Environnement {
 	}
 	
 	// setter pour la modification de case de l'environnement via l'ordonnée et l'abscisse
-	public void setCase(int c, int cos, int abs, int ord){
+	public void setCase(int c, int abs, int ord){
 		environnement[abs][ord].setColor(c);
-		environnement[abs][ord].setCost(cos);
 	}
 	
 	// setter pour l'apprentissage de la carte par le robot 
-	public void setCase(int c, int cos){
+	public void setCase(int c){
 		caseActuel.setColor(c);
-		caseActuel.setCost(cos);
 	}
 	
 	public CaseEnvironnement [][] getEnvironnement(){

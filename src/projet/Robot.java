@@ -23,58 +23,61 @@ public class Robot {
 	}
 	
 	public void CreationMap() {
-		CaseEnvironnement [][] carte ;
-		carte = env.getEnvironnement();
+		/*Environnement [][] carte ;
+		carte = new Environnement();*/
+		
+		// RED = 0, GREEN=1, BLUE = 2, ORANGE=5, WHITE=6, BLACK=7	
 		if (team == true) //Winterfell
 		{
-			carte [0][0]= new CaseEnvironnement(Color.RED); //Camp militaire nord ouest 
-			carte [0][1]= new CaseEnvironnement(Color.BLUE);
-			carte [1][0]= new CaseEnvironnement(Color.GREEN);
-			carte [1][1]= new CaseEnvironnement(Color.BLUE);
-			carte [2][0]= new CaseEnvironnement(Color.GREEN);
-			carte [2][1]= new CaseEnvironnement(Color.BLUE);
-			carte [2][2]= new CaseEnvironnement(Color.BLUE);
-			carte [3][0]= new CaseEnvironnement(Color.GREEN);
-			carte [3][1]= new CaseEnvironnement(Color.GREEN);
-			carte [3][2]= new CaseEnvironnement(Color.BLUE);
-			carte [4][0]= new CaseEnvironnement(Color.GREEN);
-			carte [4][1]= new CaseEnvironnement(Color.ORANGE);
-			carte [4][2]= new CaseEnvironnement(Color.ORANGE);
-			carte [4][3]= new CaseEnvironnement(Color.ORANGE);
-			carte [5][0]= new CaseEnvironnement(Color.GREEN);
-			carte [5][1]= new CaseEnvironnement(Color.GREEN);
-			carte [5][2]= new CaseEnvironnement(Color.GREEN);
-			carte [5][3]= new CaseEnvironnement(Color.RED); //camp militaire sud
-			carte [5][4]= new CaseEnvironnement(Color.BLUE);
-			carte [6][0]= new CaseEnvironnement(Color.WHITE); //Départ Winterfell
-			carte [6][1]= new CaseEnvironnement(Color.GREEN);
-			carte [6][2]= new CaseEnvironnement(Color.GREEN);
-			carte [6][3]= new CaseEnvironnement(Color.GREEN);
-			carte [6][5]= new CaseEnvironnement(Color.BLUE);
+			this.env.setCase(0, 0, 0); //Camp militaire nord ouest 
+			this.env.setCase(2, 0, 1);
+			this.env.setCase(1, 1, 0);	
+			this.env.setCase(2, 1, 1);
+			this.env.setCase(1, 2, 0);
+			this.env.setCase(2, 2, 1);
+			this.env.setCase(2, 2, 2);
+			this.env.setCase(1, 3, 0);
+			this.env.setCase(1, 3, 1);
+			this.env.setCase(2, 3, 2);
+			this.env.setCase(1, 4, 0);
+			this.env.setCase(5, 4, 1);
+			this.env.setCase(5, 4, 2);
+			this.env.setCase(5, 4, 3);
+			this.env.setCase(1, 5, 0);
+			this.env.setCase(1, 5, 1);
+			this.env.setCase(1, 5, 2);
+			this.env.setCase(0, 5, 3); //camp militaire sud
+			this.env.setCase(2, 5, 4); 
+			this.env.setCase(6, 6, 0); //Départ Winterfell
+			this.env.setCase(1, 6, 1); 
+			this.env.setCase(1, 6, 2);
+			this.env.setCase(1, 6, 3);
+			this.env.setCase(2, 6, 4);
+			
 		}
 		else //Thenn
 		{ 
-			carte [0][0]= new CaseEnvironnement(Color.RED); // Camp militaire nord ouest 
-			carte [0][1]= new CaseEnvironnement(Color.BLUE);
-			carte [0][2]= new CaseEnvironnement(Color.GREEN);
-			carte [0][3]= new CaseEnvironnement(Color.GREEN);
-			carte [0][4]= new CaseEnvironnement(Color.WHITE); // Départ Thenn
-			carte [1][1]= new CaseEnvironnement(Color.BLUE);
-			carte [1][2]= new CaseEnvironnement(Color.GREEN);
-			carte [1][3]= new CaseEnvironnement(Color.GREEN);
-			carte [1][4]= new CaseEnvironnement(Color.GREEN);
-			carte [2][1]= new CaseEnvironnement(Color.BLUE);
-			carte [2][2]= new CaseEnvironnement(Color.BLUE);
-			carte [2][3]= new CaseEnvironnement(Color.GREEN);
-			carte [2][4]= new CaseEnvironnement(Color.ORANGE);
-			carte [3][2]= new CaseEnvironnement(Color.BLUE);
-			carte [3][3]= new CaseEnvironnement(Color.GREEN);
-			carte [3][4]= new CaseEnvironnement(Color.GREEN);
-			carte [4][3]= new CaseEnvironnement(Color.ORANGE);
-			carte [4][4]= new CaseEnvironnement(Color.GREEN);
-			carte [5][3]= new CaseEnvironnement(Color.RED); // Camp militaire sud
-			carte [5][4]= new CaseEnvironnement(Color.BLUE);
-			carte [6][4]= new CaseEnvironnement(Color.BLUE);
+			this.env.setCase(0, 0, 0);
+			this.env.setCase(2, 0, 1); // Camp militaire nord ouest 
+			this.env.setCase(1, 0, 2);
+			this.env.setCase(1, 0, 3);
+			this.env.setCase(6, 0, 4); // Départ Thenn
+			this.env.setCase(2, 1, 1); 
+			this.env.setCase(1, 1, 2);
+			this.env.setCase(1, 1, 3);
+			this.env.setCase(1, 1, 4);
+			this.env.setCase(2, 2, 1);
+			this.env.setCase(2, 2, 2);
+			this.env.setCase(1, 2, 3);
+			this.env.setCase(5, 2, 4);
+			this.env.setCase(2, 3, 2);
+			this.env.setCase(1, 3, 3);
+			this.env.setCase(1, 3, 4);
+			this.env.setCase(5, 4, 3);
+			this.env.setCase(1, 4, 4);
+			this.env.setCase(0, 5, 3); // Camp militaire sud
+			this.env.setCase(2, 5, 4);
+			this.env.setCase(2, 6, 4);
 		}
 }
 

@@ -34,10 +34,31 @@ public class Objectif1 implements Behavior {
 	}
 	
 	public void action() {
-		int valeur = Couleur.getColorID();
-		Motor.B.setSpeed(100);		
-        Motor.C.setSpeed(100);
-         
+		//int valeur = Couleur.getColorID();
+		pilot.setLinearSpeed(5);
+		pilot.setAngularSpeed(5);
+		
+	//Utilisation de la longueur des cases
+		
+		if (camp){  //Winterfell
+			//en positionnant le capteur couleur du robot dans le coin haut droit de la case blanche de départ
+			pilot.travel(40);
+			pilot.rotate(90);
+			pilot.travel(14);
+			
+			LCD.drawString("Arrivée !", 3,4);
+		}
+
+		else {
+			//en positionnant le capteur couleur du robot dans le coin haut droit de la case blanche de départ
+			pilot.travel(52);
+			pilot.rotate(90);
+			LCD.drawString("Arrivée !", 3,4);
+		}
+        
+        
+        
+    /* Utilisation du capteur de couleur, méthode plus compliquée     
 		if (camp){      // 0 = Thenn et 1 = Winterfell
 			if (valeur== Color.WHITE ){ //Vérification que le robot est bien sur la case départ
 				while (valeur == Color.WHITE){
@@ -80,7 +101,7 @@ public class Objectif1 implements Behavior {
 			env.setCase(valeur, 1); 
 			LCD.drawString("Vous etes arrive", 3, 4); 
 		}
-		
+		*/
 
 	}
 }
