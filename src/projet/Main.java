@@ -16,18 +16,12 @@ import lejos.robotics.navigation.MovePilot;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 
-/**
- * Class for the behavior for the robot
- * 
- *@see StopRobot.java
- * @author Christian B.
- */
-//Pour l'instant c'est juste le main de l'exo pour comportements multiples
+
 public class Main {
 	public static void main(String[] args) {
 		
-		ArrayList<CaseEnvironnement> map1 = new ArrayList<CaseEnvironnement>();
-		ArrayList<CaseEnvironnement> map2 = new ArrayList<CaseEnvironnement>();
+		CaseEnvironnement map1 [][] = new CaseEnvironnement [5][7];
+		CaseEnvironnement map2 [][] = new CaseEnvironnement [5][7];
 		CaseEnvironnement start1 = new CaseEnvironnement(Color.WHITE);
 		
 		Environnement env1 = new Environnement(map1,start1);
@@ -62,12 +56,9 @@ public class Main {
 		//Behavior bFollowBlackLine = new FollowBlackLine(color, ts);
 		Behavior bCollision = new HitSomething(ts, s);
 		Behavior bStop = new StopRobot(ts, color, s);
-		Behavior bObjectif1 = new Objectif1 (); //Ajouter paramètres 
+		//Behavior bObjectif1 = new Objectif1(); //Ajouter parametres 
 		//Recuperation camp
 
-		
-		
-		
 		//bArray[0] = bSearchLine;
 		//bArray[1] = bFollowBlackLine;
 		bArray[2] = bCollision;
