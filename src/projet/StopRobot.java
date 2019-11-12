@@ -17,13 +17,13 @@ import lejos.robotics.subsumption.Behavior;
  */
 public class StopRobot implements Behavior{
 	//private EV3UltrasonicSensor ultrasonic;
-	private EV3TouchSensor touch; 
+	//private EV3TouchSensor touch; 
 	private EV3ColorSensor color;
 	private float [] f;
 	private Arbitrator action;
 	
-	public StopRobot(EV3TouchSensor ts, EV3ColorSensor color, float [] s) {
-		this.touch= ts; this.color = color; this.f = s;
+	public StopRobot(EV3ColorSensor color, float [] s) {
+		this.color = color; this.f = s;
 		//this.ultrasonic = us;
 	}
 	
@@ -50,7 +50,7 @@ public class StopRobot implements Behavior{
 
 		//ultrasonic.close();
 		color.close();
-		touch.close();
+		
 		
 		action.stop();
 		System.exit(0);

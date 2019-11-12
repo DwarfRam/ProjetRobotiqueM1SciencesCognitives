@@ -8,14 +8,12 @@ import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.robotics.navigation.MovePilot;
 
 public class Objectif1 implements Behavior {
-	EV3ColorSensor Couleur = new EV3ColorSensor(SensorPort.S3);
-	
 	private boolean camp; // True == Garde de nuit 
 	private MovePilot pilot;
 		
 	public Objectif1 (boolean c, MovePilot p){
 		this.camp = c;
-		this.pilot = p;	
+		this.pilot = p;
 	}
 
 	public boolean takeControl() {
@@ -27,8 +25,8 @@ public class Objectif1 implements Behavior {
 	
 	public void action() {
 		//int valeur = Couleur.getColorID();
-		pilot.setLinearSpeed(5);
-		pilot.setAngularSpeed(5);
+		pilot.setLinearSpeed(20);
+		pilot.setAngularSpeed(20);
 		
 	//Utilisation de la longueur des cases
 		

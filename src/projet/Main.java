@@ -58,6 +58,7 @@ public class Main {
         LCD.drawString(warrior.getStart(), 0,4);
         LCD.asyncRefresh();
         Button.waitForAnyPress();
+        LCD.clear();
         
         
         Wheel wheel1 = WheeledChassis.modelWheel(Motor.B, 56.).offset(-60);
@@ -67,22 +68,17 @@ public class Main {
         pilot.setLinearSpeed(30.);
         pilot.setAngularSpeed(30.);
         
-		EV3TouchSensor ts= new EV3TouchSensor(SensorPort.S1);
+		//EV3TouchSensor ts = new EV3TouchSensor(SensorPort.S1);
 		EV3ColorSensor color = new EV3ColorSensor(SensorPort.S3);
 		float[] s = new float[4];							// 0..2 couleur, 3 ultrason
 		
 		Behavior[] bArray= new Behavior [3];				// tableau de 3 Behavior (= 3 comportements)
 		
-		LCD.clear();
-        LCD.drawString("Ok jusque ici ! ", 0,4);
-        LCD.asyncRefresh();
-        Button.waitForAnyPress();
-		
 		//Behavior bSearchLine = new SearchLine(pilot, color, ts);
 		//Behavior bFollowBlackLine = new FollowBlackLine(color, ts);
-		Behavior bCollision = new HitSomething(ts, s);
-		Behavior bStop = new StopRobot(ts, color, s);
-		Behavior bObjectif1 = new Objectif1(warrior.getTeam(), pilot); //
+		Behavior bCollision = new HitSomething(s);
+		Behavior bStop = new StopRobot(color, s);
+		Behavior bObjectif1 = new Objectif1(warrior.getTeam(), pilot);
 
 		bArray[0] = bObjectif1;
 		bArray[1] = bCollision;

@@ -2,20 +2,19 @@ package projet;
 
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.Motor;
-import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.robotics.subsumption.Behavior;
 import lejos.utility.Delay;
 
 public class HitSomething implements Behavior {
-	private EV3TouchSensor touch; 
+	//private EV3TouchSensor touch; 
 	private float[] sample;
 	
-	public HitSomething(EV3TouchSensor ts, float[] s) {
-		this.touch= ts; this.sample= s;
+	public HitSomething(float[] s) {
+		this.sample= s;
 	}
 	
 	public boolean takeControl() {
-		touch.fetchSample(sample, 0);
+		//touch.fetchSample(sample, 0);
 		return sample[0]==1;
 	}
 	
