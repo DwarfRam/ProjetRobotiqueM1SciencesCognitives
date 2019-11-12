@@ -24,11 +24,26 @@ public class Robot {
 		return nom;
 	}
 	
+	// test
+	public String getStart(){
+		if (this.team == true) 
+		{
+			return(this.environnement[0][0].getCase());
+		}
+		else if (this.team == false)
+		{
+			return(this.environnement[4][6].getCase());	
+		}
+		return ("error");
+	}
+	
 	public void setEnvironnement(int abs, int ord, int col) {
 		this.environnement[abs][ord] = new CaseEnvironnement(col,abs,ord);
 	}
 	
-	public void CreationMap() {
+	public void CreationMap(
+			
+			) {
 		// RED = 0, GREEN=1, BLUE = 2, ORANGE=5, WHITE=6, BLACK=7	
 		if (this.team == true) //Garde de nuit
 		{

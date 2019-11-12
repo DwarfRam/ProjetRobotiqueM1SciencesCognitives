@@ -54,6 +54,10 @@ public class CaseEnvironnement {
 		this.cost = cost;
 	}
 	
+	public String getCase(){
+		return(Integer.toString(this.abs)+";"+Integer.toString(this.ord));
+	}
+	
 	public void calibrationColor(){
 		LCD.drawString("Bonjour", 3, 4);
 		Button.waitForAnyPress();

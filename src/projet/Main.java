@@ -19,26 +19,43 @@ public class Main {
 		
 		Robot warrior = null;
 		
-		LCD.drawString("Bas = Garde", 0,0);
-		LCD.drawString("Haut = Sauvageon", 0,4);
+		LCD.drawString("Haut = Sauvageon", 0,0);
+		LCD.drawString("Bas = Garde", 0,4);
+		
+        LCD.asyncRefresh();
+        int bouton =Button.waitForAnyPress(); //waitForAnyPress revoie un integer correspondant au bouton pressé
+        /*
+        LCD.clear();
+        LCD.drawString(Integer.toString(bouton), 0,4); // ok jusqu'ici
         LCD.asyncRefresh();
         Button.waitForAnyPress();
-        if (Button.UP.isDown())
+        */
+        if (bouton==1) // Correspond au bouton du haut = sauvageon
         {
-        	warrior = new Robot("Sauvageon", false);	
-        }else if (Button.DOWN.isDown())
+        	warrior = new Robot("Sauvageon", false);
+        }
+        else if (bouton==4)//Correspond au bouton du bas = garde
         {
         	warrior = new Robot("Garde", true);
-        }
+        }        
+
+        
         LCD.clear();
-        LCD.drawString("camps choisi", 0,4); // ok jusqu'ici
+        LCD.drawString("Camps choisi :",0,2); 
+        LCD.drawString(warrior.getNom(),0,4);
         LCD.asyncRefresh();
         Button.waitForAnyPress();
+
         
-        warrior.CreationMap();//erreur ici au lancement (null pointer exception)
+        warrior.CreationMap();
         
         LCD.clear();
-        LCD.drawString("Maps creer", 0,4);
+        LCD.drawString("Carte creee ! ", 0,4);
+        LCD.asyncRefresh();
+        Button.waitForAnyPress();
+        LCD.clear();
+        LCD.drawString("Coordonnees :",0,2); 
+        LCD.drawString(warrior.getStart(), 0,4);
         LCD.asyncRefresh();
         Button.waitForAnyPress();
         
@@ -56,11 +73,16 @@ public class Main {
 		
 		Behavior[] bArray= new Behavior [3];				// tableau de 3 Behavior (= 3 comportements)
 		
+		LCD.clear();
+        LCD.drawString("Ok jusque ici ! ", 0,4);
+        LCD.asyncRefresh();
+        Button.waitForAnyPress();
+		
 		//Behavior bSearchLine = new SearchLine(pilot, color, ts);
 		//Behavior bFollowBlackLine = new FollowBlackLine(color, ts);
 		Behavior bCollision = new HitSomething(ts, s);
 		Behavior bStop = new StopRobot(ts, color, s);
-		Behavior bObjectif1 = new Objectif1(warrior.getTeam(), pilot); //Ajouter parametres 
+		Behavior bObjectif1 = new Objectif1(warrior.getTeam(), pilot); //
 
 		bArray[0] = bObjectif1;
 		bArray[1] = bCollision;
