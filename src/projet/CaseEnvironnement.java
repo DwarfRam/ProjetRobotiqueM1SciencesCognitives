@@ -10,33 +10,39 @@ import lejos.robotics.Color;
 public class CaseEnvironnement {
 	
 	private int color;
-	private int size;
+	private int SIZE;
 	private int cost;
+	private int abs;
+	private int ord;
 	
-	public CaseEnvironnement(int col){
+	public CaseEnvironnement(int col, int x, int y){
 		this.color = col;
-		this.size = 12;
+		this.SIZE = 12;
+		this.abs = x;
+		this.ord = y;
+		
 		switch(col) {
-		  case 1: // red
+		  case 0: // red
 			  this.cost = 1;
 			  break;
-		  case 2 : // green
+		  case 1 : // green
 			 this.cost = 1;
 			 break;
-		  case 3 : // orange
+		  case 5 : // orange
 		    this.cost = 5;
 		    break;
-		  case 4 : // blue
+		  case 2 : // blue
 		    this.cost = 10;
 		    break;
-		  case 5:  // black
+		  case 7:  // black
 		    this.cost = 12;
 		    break;
-		  case 0: // white
+		  case 6: // white
 		    this.cost = 1;
 		    break;
 		  default:
-			  this.cost = 1;
+			  this.cost = 0;
+			  break;
 		}
 	}
 	
@@ -44,9 +50,8 @@ public class CaseEnvironnement {
 		color = c;
 	}
 	
-	
-	public void setCost (int cos){
-		cost = cos;
+	public void setCost (int cost){
+		this.cost = cost;
 	}
 	
 	public void calibrationColor(){
@@ -103,7 +108,8 @@ public class CaseEnvironnement {
 		capteurCouleur.close();
 		
 	}
-	 public int getColor(){
+	
+	public int getColor(){
 		 return color;
 	 }
 		

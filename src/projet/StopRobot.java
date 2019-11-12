@@ -32,7 +32,7 @@ public class StopRobot implements Behavior{
 	}
 	
 	public boolean takeControl() {
-		return(Button.LEFT.isDown());
+		return(Button.ESCAPE.isDown());
 	}
 	
 	public void suppress() {

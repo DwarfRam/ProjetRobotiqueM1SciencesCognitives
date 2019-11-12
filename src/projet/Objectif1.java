@@ -1,30 +1,22 @@
 package projet;
 
-import lejos.robotics.Color;
 import lejos.robotics.subsumption.Behavior;
 import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
-import lejos.hardware.motor.Motor;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.robotics.chassis.Chassis;
-import lejos.robotics.chassis.Wheel;
-import lejos.robotics.chassis.WheeledChassis;
 import lejos.robotics.navigation.MovePilot;
 
 public class Objectif1 implements Behavior {
 	EV3ColorSensor Couleur = new EV3ColorSensor(SensorPort.S3);
 	
-	private Environnement env;
-	private boolean camp;
+	private boolean camp; // True == Garde de nuit 
 	private MovePilot pilot;
 		
-	public Objectif1 (boolean c, Environnement e, MovePilot p){
+	public Objectif1 (boolean c, MovePilot p){
 		this.camp = c;
-		this.env = e;
 		this.pilot = p;	
 	}
-
 
 	public boolean takeControl() {
 		return(Button.RIGHT.isDown());
@@ -40,27 +32,28 @@ public class Objectif1 implements Behavior {
 		
 	//Utilisation de la longueur des cases
 		
-		if (camp){  //Winterfell
-			//en positionnant le capteur couleur du robot dans le coin haut droit de la case blanche de départ
+		if (camp){  //Garde de nuit 
+			//en positionnant le capteur couleur du robot dans le coin haut droit de la case blanche de depart
 			pilot.travel(40);
 			pilot.rotate(90);
-			pilot.travel(14);
+			pilot.travel(40);
 			
-			LCD.drawString("Arrivée !", 3,4);
+			LCD.drawString("Arrivee !", 3,4);
 		}
 
 		else {
-			//en positionnant le capteur couleur du robot dans le coin haut droit de la case blanche de départ
-			pilot.travel(52);
-			pilot.rotate(90);
-			LCD.drawString("Arrivée !", 3,4);
+			//en positionnant le capteur couleur du robot dans le coin haut droit de la case blanche de depart
+			pilot.travel(40);
+			pilot.rotate(180);
+			pilot.travel(40);
+			LCD.drawString("Arrivee !", 3,4);
 		}
         
         
         
-    /* Utilisation du capteur de couleur, méthode plus compliquée     
+    /* Utilisation du capteur de couleur, mï¿½thode plus compliquï¿½e     
 		if (camp){      // 0 = Thenn et 1 = Winterfell
-			if (valeur== Color.WHITE ){ //Vérification que le robot est bien sur la case départ
+			if (valeur== Color.WHITE ){ //Vï¿½rification que le robot est bien sur la case dï¿½part
 				while (valeur == Color.WHITE){
 					Motor.B.forward();
 					Motor.C.forward();

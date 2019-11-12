@@ -1,91 +1,96 @@
 package projet;
 
-import lejos.robotics.Color;
-
 public class Robot {
 
 	private String nom;	
 	private boolean team; 
-	private Environnement env;
+	private CaseEnvironnement [][] environnement;
 	
 	public Robot (String n, boolean t){
-		this.nom = n; this.team = t;
-		if (team)
-		{
-			this.env = new Environnement(this.team);
-		} else
-		{
-			this.env = new Environnement(this.team);
-		}
+		this.nom = n;
+		this.team = t;
+		this.environnement = new CaseEnvironnement [5][7];
 	}
 	
-	//Getter
 	public boolean getTeam(){
 		return team;
 	}
 	
-	//Setter
 	public void setTeam(boolean newTeam){
 		this.team= newTeam;
 	}
 	
+	public String getNom(){
+		return nom;
+	}
+	
+	public void setEnvironnement(int abs, int ord, int col) {
+		this.environnement[abs][ord] = new CaseEnvironnement(col,abs,ord);
+	}
+	
 	public void CreationMap() {
-		/*Environnement [][] carte ;
-		carte = new Environnement();*/
-		
 		// RED = 0, GREEN=1, BLUE = 2, ORANGE=5, WHITE=6, BLACK=7	
-		if (team == true) //Winterfell
+		if (this.team == true) //Garde de nuit
 		{
-			this.env.setCase(0, 0, 0); //Camp militaire nord ouest 
-			this.env.setCase(2, 0, 1);
-			this.env.setCase(1, 1, 0);	
-			this.env.setCase(2, 1, 1);
-			this.env.setCase(1, 2, 0);
-			this.env.setCase(2, 2, 1);
-			this.env.setCase(2, 2, 2);
-			this.env.setCase(1, 3, 0);
-			this.env.setCase(1, 3, 1);
-			this.env.setCase(2, 3, 2);
-			this.env.setCase(1, 4, 0);
-			this.env.setCase(5, 4, 1);
-			this.env.setCase(5, 4, 2);
-			this.env.setCase(5, 4, 3);
-			this.env.setCase(1, 5, 0);
-			this.env.setCase(1, 5, 1);
-			this.env.setCase(1, 5, 2);
-			this.env.setCase(0, 5, 3); //camp militaire sud
-			this.env.setCase(2, 5, 4); 
-			this.env.setCase(6, 6, 0); //D�part Winterfell
-			this.env.setCase(1, 6, 1); 
-			this.env.setCase(1, 6, 2);
-			this.env.setCase(1, 6, 3);
-			this.env.setCase(2, 6, 4);
-			
-		}
-		else //Thenn
-		{ 
-			this.env.setCase(0, 0, 0);
-			this.env.setCase(2, 0, 1); // Camp militaire nord ouest 
-			this.env.setCase(1, 0, 2);
-			this.env.setCase(1, 0, 3);
-			this.env.setCase(6, 0, 4); // D�part Thenn
-			this.env.setCase(2, 1, 1); 
-			this.env.setCase(1, 1, 2);
-			this.env.setCase(1, 1, 3);
-			this.env.setCase(1, 1, 4);
-			this.env.setCase(2, 2, 1);
-			this.env.setCase(2, 2, 2);
-			this.env.setCase(1, 2, 3);
-			this.env.setCase(5, 2, 4);
-			this.env.setCase(2, 3, 2);
-			this.env.setCase(1, 3, 3);
-			this.env.setCase(1, 3, 4);
-			this.env.setCase(5, 4, 3);
-			this.env.setCase(1, 4, 4);
-			this.env.setCase(0, 5, 3); // Camp militaire sud
-			this.env.setCase(2, 5, 4);
-			this.env.setCase(2, 6, 4);
-		}
-}
+			this.environnement[0][0] = new CaseEnvironnement(6,0,0);	//départ au sud ouest
+			this.environnement[1][0] = new CaseEnvironnement(1,1,0);
+			this.environnement[2][0] = new CaseEnvironnement(1,2,0);
+			this.environnement[3][0] = new CaseEnvironnement(1,3,0);
+			this.environnement[4][0] = new CaseEnvironnement(2,4,0);
+			this.environnement[0][1] = new CaseEnvironnement(1,0,1);
+			this.environnement[1][1] = new CaseEnvironnement(1,1,1);
+			this.environnement[2][1] = new CaseEnvironnement(1,2,1);
+			this.environnement[3][1] = new CaseEnvironnement(0,3,1);	// camp militaire au sud est
+			this.environnement[4][1] = new CaseEnvironnement(2,4,1);
 
+			this.environnement[0][2] = new CaseEnvironnement(1,0,2);
+			this.environnement[1][2] = new CaseEnvironnement(5,1,2);
+			this.environnement[2][2] = new CaseEnvironnement(5,2,2);
+			this.environnement[3][2] = new CaseEnvironnement(5,3,2);
+
+			this.environnement[0][3] = new CaseEnvironnement(1,0,3);
+			this.environnement[1][3] = new CaseEnvironnement(1,1,3);
+			this.environnement[2][3] = new CaseEnvironnement(2,2,3);
+			
+			this.environnement[0][4] = new CaseEnvironnement(1,0,4);
+			this.environnement[1][4] = new CaseEnvironnement(2,1,4);
+			this.environnement[2][4] = new CaseEnvironnement(2,2,4);
+
+			this.environnement[0][5] = new CaseEnvironnement(1,1,5);
+			this.environnement[1][5] = new CaseEnvironnement(2,1,5);
+			
+			this.environnement[0][6] = new CaseEnvironnement(0,0,6);	// camp militaire au nord ouest
+			this.environnement[1][6] = new CaseEnvironnement(2,1,6);
+		}
+		else //Sauvageon
+		{ 
+			this.environnement[4][0] = new CaseEnvironnement(2,4,0);
+			
+			this.environnement[3][1] = new CaseEnvironnement(0,3,1);	// camp militaire au sud est
+			this.environnement[4][1] = new CaseEnvironnement(2,4,1);
+			
+			this.environnement[3][2] = new CaseEnvironnement(5,3,2);
+			this.environnement[4][2] = new CaseEnvironnement(1,4,2);
+			
+			this.environnement[2][3] = new CaseEnvironnement(2,2,3);
+			this.environnement[3][3] = new CaseEnvironnement(1,3,3);
+			this.environnement[4][3] = new CaseEnvironnement(1,4,3);
+			
+			this.environnement[1][4] = new CaseEnvironnement(2,1,4);			
+			this.environnement[2][4] = new CaseEnvironnement(2,2,4);
+			this.environnement[3][4] = new CaseEnvironnement(1,3,4);
+			this.environnement[4][4] = new CaseEnvironnement(5,4,4);
+			
+			this.environnement[1][5] = new CaseEnvironnement(1,1,5);			
+			this.environnement[2][5] = new CaseEnvironnement(1,2,5);
+			this.environnement[3][5] = new CaseEnvironnement(1,3,5);
+			this.environnement[4][5] = new CaseEnvironnement(2,4,5);
+			
+			this.environnement[0][6] = new CaseEnvironnement(0,0,6);	// camp militaire au nord ouest
+			this.environnement[1][6] = new CaseEnvironnement(2,1,6);			
+			this.environnement[2][6] = new CaseEnvironnement(1,2,6);
+			this.environnement[3][6] = new CaseEnvironnement(1,3,6);
+			this.environnement[4][6] = new CaseEnvironnement(6,4,6); 	// départ au nord est
+		}
+	}
 }

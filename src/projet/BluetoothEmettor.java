@@ -17,7 +17,7 @@ public class BluetoothEmettor {
 
 	public static void main(String[] args) {
 		String connected = "Connected";
-		String waiting = "Waiting";
+		//String waiting = "Waiting";
 		EV3 ev = LocalEV3.get();
 		System.out.println("--"+ev.getName()+"--");
 		Button.RIGHT.waitForPressAndRelease();

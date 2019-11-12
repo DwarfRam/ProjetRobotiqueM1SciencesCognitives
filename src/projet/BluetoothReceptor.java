@@ -11,7 +11,7 @@ public class BluetoothReceptor {
 
 	public static void main(String[] args) {
 		String connected = "Connected";
-		String waiting = "Waiting";
+		//String waiting = "Waiting";
 		
 		try {
 			//LCD.drawString(waiting, 0, 0);

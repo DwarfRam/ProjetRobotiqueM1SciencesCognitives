@@ -6,7 +6,6 @@ import lejos.hardware.motor.Motor;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
-import lejos.robotics.Color;
 import lejos.robotics.chassis.Chassis;
 import lejos.robotics.chassis.Wheel;
 import lejos.robotics.chassis.WheeledChassis;
@@ -18,13 +17,31 @@ import lejos.robotics.subsumption.Behavior;
 public class Main {
 	public static void main(String[] args) {
 		
-		Robot thenn = new Robot( "Thenn", false);
-		Robot winterfell = new Robot( "Winterfell", true);
+		Robot warrior = null;
 		
-		LCD.drawString("Go to the camp", 0,4);
+		LCD.drawString("Bas = Garde", 0,0);
+		LCD.drawString("Haut = Sauvageon", 0,4);
         LCD.asyncRefresh();
         Button.waitForAnyPress();
+        if (Button.UP.isDown())
+        {
+        	warrior = new Robot("Sauvageon", false);	
+        }else if (Button.DOWN.isDown())
+        {
+        	warrior = new Robot("Garde", true);
+        }
         LCD.clear();
+        LCD.drawString("camps choisi", 0,4); // ok jusqu'ici
+        LCD.asyncRefresh();
+        Button.waitForAnyPress();
+        
+        warrior.CreationMap();//erreur ici au lancement (null pointer exception)
+        
+        LCD.clear();
+        LCD.drawString("Maps creer", 0,4);
+        LCD.asyncRefresh();
+        Button.waitForAnyPress();
+        
         
         Wheel wheel1 = WheeledChassis.modelWheel(Motor.B, 56.).offset(-60);
         Wheel wheel2 = WheeledChassis.modelWheel(Motor.C, 56.).offset(60);
@@ -37,22 +54,17 @@ public class Main {
 		EV3ColorSensor color = new EV3ColorSensor(SensorPort.S3);
 		float[] s = new float[4];							// 0..2 couleur, 3 ultrason
 		
-
-		
-		
-		Behavior[] bArray= new Behavior [4];				// tableau de 3 Behavior (= 3 comportements)
+		Behavior[] bArray= new Behavior [3];				// tableau de 3 Behavior (= 3 comportements)
 		
 		//Behavior bSearchLine = new SearchLine(pilot, color, ts);
 		//Behavior bFollowBlackLine = new FollowBlackLine(color, ts);
 		Behavior bCollision = new HitSomething(ts, s);
 		Behavior bStop = new StopRobot(ts, color, s);
-		//Behavior bObjectif1 = new Objectif1(); //Ajouter parametres 
-		//Recuperation camp
+		Behavior bObjectif1 = new Objectif1(warrior.getTeam(), pilot); //Ajouter parametres 
 
-		//bArray[0] = bSearchLine;
-		//bArray[1] = bFollowBlackLine;
-		bArray[2] = bCollision;
-		bArray[3] = bStop;
+		bArray[0] = bObjectif1;
+		bArray[1] = bCollision;
+		bArray[2] = bStop;
 		
 		Arbitrator arby= new Arbitrator(bArray);
 		
