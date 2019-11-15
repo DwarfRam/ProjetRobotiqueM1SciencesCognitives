@@ -62,4 +62,11 @@ public class CaseEnvironnement {
 		 return color;
 	 }
 		
+	public int getAbs(){
+		return abs;
+	}
+	
+	public int getOrd () {
+		return ord;
+	}
 }

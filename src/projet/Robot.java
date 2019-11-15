@@ -16,6 +16,10 @@ public class Robot {
 		return team;
 	}
 	
+	public CaseEnvironnement[][] getEnv(){
+		return environnement;
+	}
+	
 	public void setTeam(boolean newTeam){
 		this.team= newTeam;
 	}
