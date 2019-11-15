@@ -70,10 +70,12 @@ public class Main {
 		Behavior bCollision = new HitSomething(s);
 		Behavior bStop = new StopRobot(color, s);
 		Behavior bObjectif1 = new Objectif1(warrior.getTeam(), pilot);
+		Behavior bCalibrationColor = new CalibrationColor();
 
 		bArray[0] = bObjectif1;
 		bArray[1] = bCollision;
 		bArray[2] = bStop;
+		bArray[3] = bCalibrationColor;
 		
 		Arbitrator arby= new Arbitrator(bArray);
 		LCD.clear();
