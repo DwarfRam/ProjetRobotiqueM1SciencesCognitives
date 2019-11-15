@@ -24,12 +24,7 @@ public class Main {
 		
         LCD.asyncRefresh();
         int bouton =Button.waitForAnyPress(); //waitForAnyPress revoie un integer correspondant au bouton pressé
-        /*
-        LCD.clear();
-        LCD.drawString(Integer.toString(bouton), 0,4); // ok jusqu'ici
-        LCD.asyncRefresh();
-        Button.waitForAnyPress();
-        */
+ 
         if (bouton==1) // Correspond au bouton du haut = sauvageon
         {
         	warrior = new Robot("Sauvageon", false);
@@ -49,10 +44,6 @@ public class Main {
         
         warrior.CreationMap();
         
-        LCD.clear();
-        LCD.drawString("Carte creee ! ", 0,4);
-        LCD.asyncRefresh();
-        Button.waitForAnyPress();
         LCD.clear();
         LCD.drawString("Coordonnees :",0,2); 
         LCD.drawString(warrior.getStart(), 0,4);
@@ -85,6 +76,9 @@ public class Main {
 		bArray[2] = bStop;
 		
 		Arbitrator arby= new Arbitrator(bArray);
+		LCD.clear();
+        LCD.drawString("Pret",0,2);
+        LCD.asyncRefresh();
 		
 		if (bStop instanceof StopRobot) {
 			StopRobot b = (StopRobot)bStop;

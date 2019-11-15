@@ -58,7 +58,7 @@ public class CaseEnvironnement {
 		return(Integer.toString(this.abs)+";"+Integer.toString(this.ord));
 	}
 	
-	public void calibrationColor(){
+	public void calibrationColor(){ // a mettre dans un comportement
 		LCD.drawString("Bonjour", 3, 4);
 		Button.waitForAnyPress();
 		LCD.clear();
