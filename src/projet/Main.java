@@ -5,7 +5,6 @@ import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.Motor;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.robotics.chassis.Chassis;
 import lejos.robotics.chassis.Wheel;
 import lejos.robotics.chassis.WheeledChassis;
@@ -23,7 +22,7 @@ public class Main {
 		LCD.drawString("Bas = Garde", 0,4);
 		
         LCD.asyncRefresh();
-        int bouton =Button.waitForAnyPress(); //waitForAnyPress revoie un integer correspondant au bouton pressé
+        int bouton =Button.waitForAnyPress(); //waitForAnyPress renvoie un integer correspondant au bouton pressé
  
         if (bouton==1) // Correspond au bouton du haut = sauvageon
         {
@@ -89,5 +88,5 @@ public class Main {
 		
 		arby.go();
 	}
-
+	
 }

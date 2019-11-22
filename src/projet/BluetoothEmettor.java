@@ -42,7 +42,7 @@ public class BluetoothEmettor {
 			System.out.println("\n\nEnvoi");
 			dos.write(12); // ecrit une valeur dans le flux
 			dos.flush(); // force l envoi
-			System.out.println("\nEnvoy�");
+			System.out.println("\nEnvoye");
 			//dis.close();
 			dos.close();
 			btc.close();
