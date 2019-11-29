@@ -35,13 +35,13 @@ public class BluetoothEmettor {
 			LCD.drawString(connected, 0, 0);
 			LCD.refresh();
 
-			//InputStream is = btc.openInputStream();
+			
 			OutputStream os = btc.openOutputStream();
-			//DataInputStream dis = new DataInputStream(is);
-			ObjectOutputStream oos = new ObjectOutputStream(os);
+			ObjectOutputStream oos = new ObjectOutputStream(os); // Changement en OBJECTOutputStream 
+			
 			System.out.println("\n\nEnvoi");
-			//oos.writeObject(); // ecrit une valeur dans le flux - ajouter object à envoyer
-			oos.flush(); // force l envoi
+			//oos.writeObject(); // Envoi un objet dans le flux - ajouter objet à envoyer COMMENT ? 
+			oos.flush(); // force l'envoi
 			System.out.println("\nEnvoye");
 			//dis.close();
 			oos.close();

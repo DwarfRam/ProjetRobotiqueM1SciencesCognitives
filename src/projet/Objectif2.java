@@ -32,11 +32,13 @@ public class Objectif2 implements Behavior{
 		BTConnector bt = new BTConnector();
 		BTConnection btc = bt.connect("00:16:53:43:4E:26", NXTConnection.PACKET);
 		
+		// Pas compris à quoi servait cette partie en dessous, mais j'ai changé en ObjectOutputStream
+		
 		//OutputStream os = btc.openOutputStream();
 		//ObjectOutputStream oos = new ObjectOutputStream(os);
 		//CaseEnvironnement [][] env =  rob.getEnv() ;
 		
-		//dos.write(env);
+		//dos.writeObject(env);
 		
 		
 		

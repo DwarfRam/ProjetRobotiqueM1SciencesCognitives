@@ -29,10 +29,10 @@ public class BluetoothReceptor {
 
 			InputStream is = btc.openInputStream();
 			//OutputStream os = btc.openOutputStream();
-			ObjectInputStream ois = new ObjectInputStream(is);
+			ObjectInputStream ois = new ObjectInputStream(is); // Changement en OBJECTInputStream
 			//DataOutputStream dos = new DataOutputStream(os);
 
-			//CaseEnvironnement valeur = ois.read(); A MODIFIER
+			//CaseEnvironnement valeur = ois.read(); A MODIFIER => Récupération de l'objet envoyer dans le flux 
 			
 
 			ois.close();
