@@ -1,11 +1,13 @@
 package projet;
 
-import java.io.DataInputStream;
+//import java.io.DataInputStream;
 import java.io.InputStream;
 import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.remote.nxt.BTConnector;
 import lejos.remote.nxt.NXTConnection;
+import java.io.ObjectInputStream;
+;
 
 public class BluetoothReceptor {
 
@@ -27,16 +29,16 @@ public class BluetoothReceptor {
 
 			InputStream is = btc.openInputStream();
 			//OutputStream os = btc.openOutputStream();
-			DataInputStream dis = new DataInputStream(is);
+			ObjectInputStream ois = new ObjectInputStream(is);
 			//DataOutputStream dos = new DataOutputStream(os);
 
-			int valeur = dis.read();
+			//CaseEnvironnement valeur = ois.read(); A MODIFIER
 			
 
-			dis.close();
+			ois.close();
 			//dos.close();
 			btc.close();
-			System.out.println(valeur);
+			//System.out.println(valeur);
 			Button.RIGHT.waitForPressAndRelease();
 			LCD.clear();
 			} else {

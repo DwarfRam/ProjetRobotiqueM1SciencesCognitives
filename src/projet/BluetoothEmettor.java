@@ -11,7 +11,7 @@ import lejos.hardware.lcd.LCD;
 import lejos.remote.nxt.BTConnection;
 import lejos.remote.nxt.BTConnector;
 import lejos.remote.nxt.NXTConnection;
-
+import java.io.ObjectOutputStream;
 
 public class BluetoothEmettor {
 
@@ -38,13 +38,13 @@ public class BluetoothEmettor {
 			//InputStream is = btc.openInputStream();
 			OutputStream os = btc.openOutputStream();
 			//DataInputStream dis = new DataInputStream(is);
-			DataOutputStream dos = new DataOutputStream(os);
+			ObjectOutputStream oos = new ObjectOutputStream(os);
 			System.out.println("\n\nEnvoi");
-			dos.write(12); // ecrit une valeur dans le flux
-			dos.flush(); // force l envoi
+			//oos.writeObject(); // ecrit une valeur dans le flux - ajouter object à envoyer
+			oos.flush(); // force l envoi
 			System.out.println("\nEnvoye");
 			//dis.close();
-			dos.close();
+			oos.close();
 			btc.close();
 			LCD.clear();
 			
