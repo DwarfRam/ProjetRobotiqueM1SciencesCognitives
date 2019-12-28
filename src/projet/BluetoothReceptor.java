@@ -8,9 +8,22 @@ import lejos.remote.nxt.BTConnector;
 import lejos.remote.nxt.NXTConnection;
 import java.io.ObjectInputStream;
 ;
-
+/**
+ * <b>
+ * Cette classe permet de paramétrer l'envoi par bluetooth, côté récepteur. 
+ * </b>
+ * 
+ *
+ */
 public class BluetoothReceptor {
-
+	private static byte[] environnement;
+	/**
+	 * Permet d'établir la connexion entre les deux appareils.  
+	 * Une fois la connexion établie, les données peuvent être reçues. 
+	 * 
+	 * @param args : données à recevoir. 
+	 */
+	
 	public static void main(String[] args) {
 		String connected = "Connected";
 		//String waiting = "Waiting";
@@ -28,15 +41,15 @@ public class BluetoothReceptor {
 			LCD.refresh();
 
 			InputStream is = btc.openInputStream();
-			//OutputStream os = btc.openOutputStream();
+			
 			ObjectInputStream ois = new ObjectInputStream(is); // Changement en OBJECTInputStream
-			//DataOutputStream dos = new DataOutputStream(os);
-
-			//CaseEnvironnement valeur = ois.read(); A MODIFIER => Récupération de l'objet envoyer dans le flux 
 			
 
+			//CaseEnvironnement valeur = 
+			ois.read(environnement); 
+
 			ois.close();
-			//dos.close();
+			
 			btc.close();
 			//System.out.println(valeur);
 			Button.RIGHT.waitForPressAndRelease();

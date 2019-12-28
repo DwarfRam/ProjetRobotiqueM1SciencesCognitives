@@ -5,15 +5,21 @@ import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.Motor;
 import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 
 /**
- * Class for the behavior for stop the robot
+ * <b> Classe permettant de stopper le robot. </b>
  * 
- *
- * @author Christian B.
+ * <p> Cette classe permet d'arrêter le robot complètement, c'est à dire que tous les capteurs sont arrêtés, 
+ * les ports sont fermés... 
+ * 
+ * Cela peut également servir en cas de problème lors de l'utilisation du robot. 
+ * 
+ * <p>
+ * Cette classe implémente la classe Behavior car correspond à un comportement. 
+ * </p>
+ * 
  */
 public class StopRobot implements Behavior{
 	//private EV3UltrasonicSensor ultrasonic;
@@ -22,9 +28,14 @@ public class StopRobot implements Behavior{
 	private float [] f;
 	private Arbitrator action;
 	
+	/**
+	 * 
+	 * @param color : capteur de couleur EV3ColorSensor
+	 * @param s : tableau des comportements 
+	 */
 	public StopRobot(EV3ColorSensor color, float [] s) {
 		this.color = color; this.f = s;
-		//this.ultrasonic = us;
+		
 	}
 	
 	public void setArbitrator (Arbitrator arby) {
@@ -38,6 +49,9 @@ public class StopRobot implements Behavior{
 	public void suppress() {
 	}
 	
+	/**
+	 * Ce qui est effectué lorsque le comportement est établi. 
+	 */
 	public void action() {
         LCD.clear();
 		LCD.drawString("Time to die", 0,4);

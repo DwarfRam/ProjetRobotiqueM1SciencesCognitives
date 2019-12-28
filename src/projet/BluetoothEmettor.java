@@ -1,9 +1,8 @@
 package projet;
 
 
-import java.io.DataOutputStream;
-import java.io.OutputStream;
 
+import java.io.OutputStream;
 import lejos.hardware.Button;
 import lejos.hardware.ev3.EV3;
 import lejos.hardware.ev3.LocalEV3;
@@ -13,8 +12,21 @@ import lejos.remote.nxt.BTConnector;
 import lejos.remote.nxt.NXTConnection;
 import java.io.ObjectOutputStream;
 
+/**
+ * <b>
+ * Cette classe permet de paramétrer l'envoi par bluetooth, côté émetteur. 
+ * </b>
+ * 
+ *
+ */
 public class BluetoothEmettor {
-
+	private static CaseEnvironnement [][] environnement;
+	/**
+	 * Permet d'établir la connexion entre les deux appareils.  
+	 * Une fois la connexion établie, les données peuvent être envoyées. 
+	 * 
+	 * @param args : données à envoyer. 
+	 */
 	public static void main(String[] args) {
 		String connected = "Connected";
 		//String waiting = "Waiting";
@@ -40,7 +52,7 @@ public class BluetoothEmettor {
 			ObjectOutputStream oos = new ObjectOutputStream(os); // Changement en OBJECTOutputStream 
 			
 			System.out.println("\n\nEnvoi");
-			//oos.writeObject(); // Envoi un objet dans le flux - ajouter objet à envoyer COMMENT ? 
+			oos.writeObject(environnement); // Envoi un objet dans le flux - ajouter objet à envoyer COMMENT ? 
 			oos.flush(); // force l'envoi
 			System.out.println("\nEnvoye");
 			//dis.close();

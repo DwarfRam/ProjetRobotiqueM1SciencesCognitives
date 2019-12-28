@@ -7,6 +7,21 @@ import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Color;
 
+/**
+ * <b>
+ * Classe permettant de définir l'environnement du robot (différentes cases de la carte)
+ * </b>
+ * 
+ * <p>
+ * Cette classe permet de paramétrer divers éléments correspondant aux différentes cases de la carte. 
+ * Ces dernières sont définis par leur couleur, qui correspond à leur coût pour le robot, 
+ * leur abscisse, et leur ordonnée. 
+ * On indique également la taille des cases. 
+ * </p>
+ * 
+ *
+ */
+
 public class CaseEnvironnement {
 	
 	private int color;
@@ -14,6 +29,17 @@ public class CaseEnvironnement {
 	private int cost;
 	private int abs;
 	private int ord;
+	
+	/**
+	 * Permet de définir la couleur et les coordonnées des cases. 
+	 * Définit également le coût en fonction de la couleur (switch case)
+	 * 
+	 * @param col Couleur de la case
+	 * @param x Abscisse de la case
+	 * @param y Ordonnée de la case 
+	 * 
+	 * 
+	 */
 	
 	public CaseEnvironnement(int col, int x, int y){
 		this.color = col;
@@ -46,26 +72,58 @@ public class CaseEnvironnement {
 		}
 	}
 	
+	/**
+	 * Définit la couleur de la case considérée. 
+	 * 
+	 * @param c : couleur de la case
+	 */
 	public void setColor(int c){
 		color = c;
 	}
 	
+	/**
+	 * Définit le coût de la case considérée. 
+	 * 
+	 * @param cost : coût de la case
+	 */
 	public void setCost (int cost){
 		this.cost = cost;
 	}
 	
+	/**
+	 * Retourne les coordonnées de la case considérée. 
+	 * 
+	 * @return  Les coordonées de la case. 
+	 */
 	public String getCase(){
 		return(Integer.toString(this.abs)+";"+Integer.toString(this.ord));
 	}
 		
+	/**
+	 * Retourne la couleur de la case considérée.
+	 * 
+	 * @return La couleur de la case. 
+	 */
 	public int getColor(){
 		 return color;
 	 }
+	
+	/**
+	 * Retourne l'abscisse de la case considérée. 
+	 * 
+	 * @return L'abscisse de la case. 
+	 */
 		
 	public int getAbs(){
 		return abs;
 	}
 	
+	
+	/**
+	 * Retourne l'ordonnée de la case considérée. 
+	 * 
+	 * @return L'ordonnée de la case. 
+	 */
 	public int getOrd () {
 		return ord;
 	}

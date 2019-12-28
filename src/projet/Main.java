@@ -11,7 +11,31 @@ import lejos.robotics.chassis.WheeledChassis;
 import lejos.robotics.navigation.MovePilot;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
-
+/**
+ * 
+ * 
+ * <b>La classe Main est la classe principale </b>
+ * 
+ * <p>Ici, elle comporte le paramètrage de divers outils pour le robot tels que : 
+ * <ul>
+ * <li> Les roues et le chassis </li>
+ * <li> La vitesse linéaire et la vitesse angulaire </li>
+ * <li> Le capteur couleur </li>
+ * </ul>
+ * </p>
+ * 
+ * <p>
+ * Cette classe principale permet également de gérer l'ensemble des comportements (Behavior)
+ * </p>
+ * 
+ * <p>
+ * Au début de cette classe, on retrouve également le code permettant de choisir le camp du robot (Sauvageon ou Garde)
+ * Pour cela, l'utilisateur doit appuyer sur le bouton haut afin de sélectionner les sauvageons, 
+ * ou sur le bouton bas pour sélectionner les gardes de nuit. 
+ * Une fois le choix réalisé, le nom de l'équipe choisie est affiché sur l'écran.
+ * Puis, lors de l'appui sur une bouton, les coordonnées du point de départ son affichées. 
+ * </p>
+ */
 
 public class Main {
 	public static void main(String[] args) {

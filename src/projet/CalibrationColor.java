@@ -8,9 +8,32 @@ import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Color;
 import lejos.robotics.subsumption.Behavior;
 
+/**
+ * 
+ * <b> 
+ * Classe permettant la calibration du capteur couleur. 
+ * </b>
+ *
+ *<p>
+ * Cette classe permet de calibrer le capteur couleur. Pour ce faire,différents seuils de couleur RGB ont été définis. 
+ * Selon le code RGB renvoyé par le capteur lorsqu'il se trouve sur une case, une couleur sera définie via ces différents seuils. 
+ *</p>
+ */
 public class CalibrationColor implements Behavior{
 	private CaseEnvironnement cas;
 	
+	/**
+	 * Méthode permettant la calibration du capteur couleur. 
+	 * Permet de calibrer 6 couleurs au total : 
+	 * <ul>
+	 * <li> Vert </li>
+	 * <li> Orange </li>
+	 * <li> Rouge </li>
+	 * <li> Bleu </li>
+	 * <li> Blanc </li>
+	 * <li> Noir </li>
+	 * </ul>
+	 */
 	public CalibrationColor (){
 		
 	}
@@ -23,7 +46,7 @@ public class CalibrationColor implements Behavior{
 	@Override
 	public void action() {
 		int color = cas.getColor();
-		LCD.drawString("Bonjour", 3, 4);
+		LCD.drawString("Couleurs", 3, 4);
 		Button.waitForAnyPress();
 		LCD.clear();
 		EV3ColorSensor capteurCouleur;
