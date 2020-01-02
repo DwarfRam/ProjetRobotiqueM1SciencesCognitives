@@ -1,13 +1,18 @@
 package projet;
 
+import java.util.List;
+
+import lejos.hardware.Button;
+import lejos.hardware.lcd.LCD;
+
 /**
  * <b>
- * La classe Robot correspond à la classe permettant l'initialisation des robots. 
+ * La classe Robot correspond ï¿½ la classe permettant l'initialisation des robots. 
  * </b>
  * 
  * <p>
- * Elle permet de définir le nom de l'équipe du robot. 
- * D'autre part, elle comporte la méthode permettant l'apprentissage de la carte par le robot.
+ * Elle permet de dï¿½finir le nom de l'ï¿½quipe du robot. 
+ * D'autre part, elle comporte la mï¿½thode permettant l'apprentissage de la carte par le robot.
  * </p>
  *
  */
@@ -20,8 +25,8 @@ public class Robot {
 	
 	/**
 	 * 
-	 * @param n = Nom de l'équipe (Garde ou Sauvageon) 
-	 * @param t = Booleen permettant de différencier l'équipe ; (false = sauvageon, true = garde)
+	 * @param n = Nom de l'ï¿½quipe (Garde ou Sauvageon) 
+	 * @param t = Booleen permettant de diffï¿½rencier l'ï¿½quipe ; (false = sauvageon, true = garde)
 	 */
 	
 	public Robot (String n, boolean t){
@@ -31,9 +36,9 @@ public class Robot {
 	}
 	
 	/**
-	 * Retourne l'équipe à laquelle appartient le robot. 
+	 * Retourne l'ï¿½quipe ï¿½ laquelle appartient le robot. 
 	 * 
-	 * @return L'équipe du robot. 
+	 * @return L'ï¿½quipe du robot. 
 	 */
 	
 	public boolean getTeam(){
@@ -41,11 +46,11 @@ public class Robot {
 	}
 	
 	/**
-	 * Permet de récupérer la case sur laquelle se trouve le robot.
+	 * Permet de rï¿½cupï¿½rer la case sur laquelle se trouve le robot.
 	 * 
 	 * @see CaseEnvironnement (Classe)
 	 * 
-	 * @return La case sur laquelle est placé le robot (abscisse et ordonnée)
+	 * @return La case sur laquelle est placï¿½ le robot (abscisse et ordonnï¿½e)
 	 */
 	
 	public CaseEnvironnement[][] getEnv(){
@@ -53,22 +58,22 @@ public class Robot {
 	}
 	
 	/**
-	 * Permet de définir l'équipe
-	 * @param newTeam = Team à laquelle doit appartenir le robot. 
+	 * Permet de dï¿½finir l'ï¿½quipe
+	 * @param newTeam = Team ï¿½ laquelle doit appartenir le robot. 
 	 */
 	public void setTeam(boolean newTeam){
 		this.team= newTeam;
 	}
 	
 	/**
-	 * Retourne le nom de l'équipe à laquelle le robot appartient.
-	 * @return Le nom de l'équipe. 
+	 * Retourne le nom de l'ï¿½quipe ï¿½ laquelle le robot appartient.
+	 * @return Le nom de l'ï¿½quipe. 
 	 */
 	public String getNom(){
 		return nom;
 	}
 	
-	// test - à supprimer ? 
+	// test - ï¿½ supprimer ? 
 	public String getStart(){
 		if (this.team == true) 
 		{
@@ -82,11 +87,11 @@ public class Robot {
 	}
 	
 	/**
-	 * Méthode permettant de définir la case sur laquelle se trouve le robot, selon son abscisse, son ordonnée
+	 * Mï¿½thode permettant de dï¿½finir la case sur laquelle se trouve le robot, selon son abscisse, son ordonnï¿½e
 	 * et sa couleur. 
 	 * 
 	 * @param abs Abscisse de la case 
-	 * @param ord Ordonnée de la case 
+	 * @param ord Ordonnï¿½e de la case 
 	 * @param col Couleur de la case 
 	 */
 	public void setEnvironnement(int abs, int ord, int col) {
@@ -94,13 +99,11 @@ public class Robot {
 	}
 	
 	/**
-	 * Méthode permettant à chaque robot, selon son équipe, à connaître la moitié de la carte qui lui correspond. 
+	 * Mï¿½thode permettant ï¿½ chaque robot, selon son ï¿½quipe, ï¿½ connaï¿½tre la moitiï¿½ de la carte qui lui correspond. 
 	 * 
 	 * @see CaseEnvironnement (Classe)
 	 */
-	public void CreationMap(
-			
-			) {
+	public void CreationMap() {
 		// RED = 0, GREEN=1, BLUE = 2, ORANGE=5, WHITE=6, BLACK=7	
 		if (this.team == true) //Garde de nuit
 		{
@@ -164,5 +167,61 @@ public class Robot {
 			this.environnement[3][6] = new CaseEnvironnement(1,3,6);
 			this.environnement[4][6] = new CaseEnvironnement(6,4,6); 	// dÃ©part au nord est
 		}
+	}
+	
+	public void searchBestPath() {
+		// -1 = blocked
+        // 0+ = additional movement cost
+        int[][] maze = {
+            {1, 10, 1, 1, 1},
+            {1, 10, 1, 1, 1},
+            {1, 10, 10, 1, 5},
+            {1, 1, 10, 1, 1},
+            {1, 5, 5, 5, 1},
+            {1, 1, 1, 1, 10},
+            {1, 1, 1, 1, 10},
+        };
+        List<Node> path ;
+        if (team == true) {
+        	AStar as = new AStar(maze, 4, 0);
+        	path = as.findPathTo(0, 6);
+        }
+        else {
+        	AStar as = new AStar(maze, 0, 6);
+        	path = as.findPathTo(4, 0);
+        }
+     
+		if (path != null) {
+            
+            int elem =0;
+            // abs de 0 Ã  18 et ord de 0 Ã  7
+            for (int i = 1; i < path.size();i++) {
+            	for (int l =0;l<4;l++) {
+            		Node n = path.get(elem);
+            		System.out.print("[" + n.x + "," + n.y + "] ");
+            		if ((elem+1)< path.size()) {
+                		elem += 1;
+    					System.out.println(elem);
+            		}
+            		else {
+            			break;
+            		}
+            	}
+            	System.out.println("\n");
+            	if ((path.get(path.size()-1)) == path.get(elem)) {
+            		break;
+            	}
+	        }
+            
+	        LCD.clear();
+	        // abs de 0 Ã  18 et ord de 0 Ã  7
+	        LCD.drawString("Le chemin est :",0,0);
+	        LCD.drawString("",0,1); 
+	        for (int i =0; i<18;i++) {
+	        	
+	        }
+	        LCD.asyncRefresh();
+	        Button.waitForAnyPress();
+        }
 	}
 }
