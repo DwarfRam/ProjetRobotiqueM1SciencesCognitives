@@ -190,38 +190,37 @@ public class Robot {
         	AStar as = new AStar(maze, 0, 6);
         	path = as.findPathTo(4, 0);
         }
-     
+        LCD.clear();
 		if (path != null) {
-            
+			
+			LCD.drawString("Le chemin sera",0,0);
+			LCD.drawString("afficher apres un",0,1);
+			LCD.drawString("appui bouton",0,2);
+	        LCD.asyncRefresh();
+	        Button.waitForAnyPress();
+	        
+	        int coordoY = 0;						// variable servant a indiquer la coordonnée en x 
             int elem =0;
-            // abs de 0 à 18 et ord de 0 à 7
             for (int i = 1; i < path.size();i++) {
-            	for (int l =0;l<4;l++) {
-            		Node n = path.get(elem);
-            		System.out.print("[" + n.x + "," + n.y + "] ");
+            	String coordoAfficher = "";
+            	coordoY += 1;
+            	for (int l =0;l<3;l++) {			// on affiche les coordonées par groupe de 3 pour ne pas dépasser sur l'écran
+            		Node n = path.get(elem);		// on cherche le node suivant retournée dans la liste retourné par la recherche de chemin
+            		coordoAfficher = coordoAfficher.concat("[" + n.x + "," + n.y + "]");
             		if ((elem+1)< path.size()) {
                 		elem += 1;
-    					System.out.println(elem);
             		}
             		else {
             			break;
             		}
             	}
-            	System.out.println("\n");
-            	if ((path.get(path.size()-1)) == path.get(elem)) {
+        		LCD.drawString(coordoAfficher,0,coordoY);
+            	if ((path.get(path.size()-1)) == path.get(elem)) {	// si l'element qui est cours correspond au dernier élément de la liste on sort de la boucle
             		break;
             	}
 	        }
-            
-	        LCD.clear();
-	        // abs de 0 à 18 et ord de 0 à 7
-	        LCD.drawString("Le chemin est :",0,0);
-	        LCD.drawString("",0,1); 
-	        for (int i =0; i<18;i++) {
-	        	
-	        }
 	        LCD.asyncRefresh();
-	        Button.waitForAnyPress();
+        	Button.waitForAnyPress();
         }
 	}
 }

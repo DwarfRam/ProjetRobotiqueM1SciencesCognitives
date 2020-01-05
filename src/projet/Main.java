@@ -16,24 +16,24 @@ import lejos.robotics.subsumption.Behavior;
  * 
  * <b>La classe Main est la classe principale </b>
  * 
- * <p>Ici, elle comporte le paramètrage de divers outils pour le robot tels que : 
+ * <p>Ici, elle comporte le paramï¿½trage de divers outils pour le robot tels que : 
  * <ul>
  * <li> Les roues et le chassis </li>
- * <li> La vitesse linéaire et la vitesse angulaire </li>
+ * <li> La vitesse linï¿½aire et la vitesse angulaire </li>
  * <li> Le capteur couleur </li>
  * </ul>
  * </p>
  * 
  * <p>
- * Cette classe principale permet également de gérer l'ensemble des comportements (Behavior)
+ * Cette classe principale permet ï¿½galement de gï¿½rer l'ensemble des comportements (Behavior)
  * </p>
  * 
  * <p>
- * Au début de cette classe, on retrouve également le code permettant de choisir le camp du robot (Sauvageon ou Garde)
- * Pour cela, l'utilisateur doit appuyer sur le bouton haut afin de sélectionner les sauvageons, 
- * ou sur le bouton bas pour sélectionner les gardes de nuit. 
- * Une fois le choix réalisé, le nom de l'équipe choisie est affiché sur l'écran.
- * Puis, lors de l'appui sur une bouton, les coordonnées du point de départ son affichées. 
+ * Au dï¿½but de cette classe, on retrouve ï¿½galement le code permettant de choisir le camp du robot (Sauvageon ou Garde)
+ * Pour cela, l'utilisateur doit appuyer sur le bouton haut afin de sï¿½lectionner les sauvageons, 
+ * ou sur le bouton bas pour sï¿½lectionner les gardes de nuit. 
+ * Une fois le choix rï¿½alisï¿½, le nom de l'ï¿½quipe choisie est affichï¿½ sur l'ï¿½cran.
+ * Puis, lors de l'appui sur une bouton, les coordonnï¿½es du point de dï¿½part son affichï¿½es. 
  * </p>
  */
 
@@ -46,7 +46,7 @@ public class Main {
 		LCD.drawString("Bas = Garde", 0,4);
 		
         LCD.asyncRefresh();
-        int bouton =Button.waitForAnyPress(); //waitForAnyPress renvoie un integer correspondant au bouton pressé
+        int bouton =Button.waitForAnyPress(); //waitForAnyPress renvoie un integer correspondant au bouton pressï¿½
  
         if (bouton==1) // Correspond au bouton du haut = sauvageon
         {
@@ -94,11 +94,13 @@ public class Main {
 		Behavior bStop = new StopRobot(color, s);
 		Behavior bObjectif1 = new Objectif1(warrior.getTeam(), pilot);
 		Behavior bCalibrationColor = new CalibrationColor();
+		Behavior bPath = new BestPath(warrior);
 
 		bArray[0] = bObjectif1;
-		bArray[1] = bCollision;
-		bArray[2] = bStop;
-		bArray[3] = bCalibrationColor;
+		bArray[1] = bPath;
+		bArray[2] = bCollision;
+		bArray[3] = bStop;
+		bArray[4] = bCalibrationColor;
 		
 		Arbitrator arby= new Arbitrator(bArray);
 		LCD.clear();
