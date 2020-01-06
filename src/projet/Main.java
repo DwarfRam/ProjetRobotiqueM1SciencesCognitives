@@ -46,7 +46,7 @@ public class Main {
 		LCD.drawString("Bas = Garde", 0,4);
 		
         LCD.asyncRefresh();
-        int bouton =Button.waitForAnyPress(); //waitForAnyPress renvoie un integer correspondant au bouton press�
+        int bouton =Button.waitForAnyPress(); //waitForAnyPress renvoie un integer correspondant au bouton presse
  
         if (bouton==1) // Correspond au bouton du haut = sauvageon
         {
