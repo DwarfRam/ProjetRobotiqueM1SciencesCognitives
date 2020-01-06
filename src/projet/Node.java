@@ -1,5 +1,10 @@
 package projet;
 
+/**
+ * <b>
+ * Classe permettant la mise en place du parcours de graphe 
+ * </b> 
+ */
 public class Node implements Comparable {
     public Node parent;
     public int x, y;

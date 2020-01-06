@@ -4,6 +4,14 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * <b>
+ * Classe permettant l'implementation de l'algorithme Astar pour la recherche de chemin.
+ * </b>
+ * 
+ * 
+ *
+ */
 public class AStar {
 	private final List<Node> open;
     private final List<Node> closed;

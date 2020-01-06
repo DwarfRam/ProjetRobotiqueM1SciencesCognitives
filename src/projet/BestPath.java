@@ -6,11 +6,11 @@ import lejos.robotics.subsumption.Behavior;
 /**
  * 
  * <b> 
- * Quatrieme objectif : Affichage du chemin optimal pour arriver à destination
+ * Quatrieme objectif : Affichage du chemin optimal pour arriver a la destination
  * </b>
  *
  * <p>
- * Le robot doit afficher le chemin calculé sur l'ecran. 
+ * Le robot doit afficher le chemin calcule sur l'ecran. 
  * </p>
  * 
  * <p>

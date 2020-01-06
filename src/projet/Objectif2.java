@@ -13,14 +13,14 @@ import java.io.ObjectInputStream;
 
 /**
  * <b>
- * Second objectif : envoi des coordonnées via Bluetooth. 
+ * Second objectif : envoi des coordonnees via Bluetooth. 
  * </b>
  * 
  * <p>
- * Il doit être possible d'envoyer les coordonnées d'un robot vers un autre lorsque l'utilisateur appui sur le bouton bas. 
+ * Il doit etre possible d'envoyer les coordonnees d'un robot vers un autre lorsque l'utilisateur appui sur le bouton bas. 
  * </p>
  * <p>
- * Cette classe implémente la classe Behavior car correspond à un comportement. 
+ * Cette classe implemente la classe Behavior car correspond a un comportement. 
  * </p>
  */
 public class Objectif2 implements Behavior{
@@ -28,7 +28,7 @@ public class Objectif2 implements Behavior{
 	
 	/**
 	 * 
-	 * @param r : Robot considéré (sauvageon ou garde)
+	 * @param r : Robot considere (sauvageon ou garde)
 	 */
 	public Objectif2 (Robot r){
 		this.rob = r;
@@ -41,7 +41,7 @@ public class Objectif2 implements Behavior{
 		return(Button.UP.isDown());
 	}
 	/**
-	 * Ce qui est effectué lorsque le comportement est établi (envoi des coordonnées)
+	 * Ce qui est effectue lorsque le comportement est etabli (envoi des coordonnees)
 	 * @see BluetoothEmettor
 	 * @see BluetoothReceptor
 	 */

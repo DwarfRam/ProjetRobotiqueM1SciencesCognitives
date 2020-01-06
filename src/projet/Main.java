@@ -14,26 +14,26 @@ import lejos.robotics.subsumption.Behavior;
 /**
  * 
  * 
- * <b>La classe Main est la classe principale </b>
+ * <b> Classe principale. </b>
  * 
- * <p>Ici, elle comporte le param�trage de divers outils pour le robot tels que : 
+ * <p>Ici, elle comporte le parametrage de divers outils pour le robot tels que : 
  * <ul>
  * <li> Les roues et le chassis </li>
- * <li> La vitesse lin�aire et la vitesse angulaire </li>
+ * <li> La vitesse lineaire et la vitesse angulaire </li>
  * <li> Le capteur couleur </li>
  * </ul>
+ * 
+ * 
+ * <p>
+ * Cette classe principale permet egalement de gerer l'ensemble des comportements (Behavior)
  * </p>
  * 
  * <p>
- * Cette classe principale permet �galement de g�rer l'ensemble des comportements (Behavior)
- * </p>
- * 
- * <p>
- * Au d�but de cette classe, on retrouve �galement le code permettant de choisir le camp du robot (Sauvageon ou Garde)
- * Pour cela, l'utilisateur doit appuyer sur le bouton haut afin de s�lectionner les sauvageons, 
+ * Au debut de cette classe, on retrouve egalement le code permettant de choisir le camp du robot (Sauvageon ou Garde)
+ * Pour cela, l'utilisateur doit appuyer sur le bouton haut afin de selectionner les sauvageons, 
  * ou sur le bouton bas pour s�lectionner les gardes de nuit. 
- * Une fois le choix r�alis�, le nom de l'�quipe choisie est affich� sur l'�cran.
- * Puis, lors de l'appui sur une bouton, les coordonn�es du point de d�part son affich�es. 
+ * Une fois le choix realise, le nom de l'equipe choisie est affichee sur l'ecran.
+ * Puis, lors de l'appui sur une bouton, les coordonnees du point de depart son affichees. 
  * </p>
  */
 

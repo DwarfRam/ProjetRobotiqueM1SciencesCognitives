@@ -6,16 +6,16 @@ import lejos.robotics.navigation.MovePilot;
 /**
  * 
  * <b> 
- * Premier objectif : déplacement du robot jusqu'au camp militaire. 
+ * Premier objectif : deplacement du robot jusqu'au camp militaire. 
  * </b>
  *
  * <p>
- * Le robot doit se déplacer jusqu'à son camp militaire. Pour cela, on utilise MovePilot, qui permet l'actionnement des moteurs des roues. 
- * On considère ici que le robot connait la taille des cases. 
+ * Le robot doit se deplacer jusqu'a son camp militaire. Pour cela, on utilise MovePilot, qui permet l'actionnement des moteurs des roues. 
+ * On considere ici que le robot connait la taille des cases. 
  * </p>
  * 
  * <p>
- * Cette classe implémente la classe Behavior car correspond à un comportement. 
+ * Cette classe implemente la classe Behavior car correspond a un comportement. 
  * </p>
  */
 public class Objectif1 implements Behavior {
@@ -42,7 +42,7 @@ public class Objectif1 implements Behavior {
 	}
 	
 	/**
-	 * Ce qui est effectué lorsque le comportement est établi. 
+	 * Ce qui est effectue lorsque le comportement est etabli. 
 	 */
 	public void action() {
 		

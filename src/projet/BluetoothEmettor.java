@@ -14,7 +14,7 @@ import java.io.ObjectOutputStream;
 
 /**
  * <b>
- * Cette classe permet de paramétrer l'envoi par bluetooth, côté émetteur. 
+ * Classe permettant de paramétrer l'envoi par bluetooth, cote émetteur. 
  * </b>
  * 
  *
@@ -22,10 +22,10 @@ import java.io.ObjectOutputStream;
 public class BluetoothEmettor {
 	private static CaseEnvironnement [][] environnement;
 	/**
-	 * Permet d'établir la connexion entre les deux appareils.  
-	 * Une fois la connexion établie, les données peuvent être envoyées. 
+	 * Permet d'etablir la connexion entre les deux appareils.  
+	 * Une fois la connexion etablie, les données peuvent etre envoyees. 
 	 * 
-	 * @param args : données à envoyer. 
+	 * @param args : donnees à envoyer. 
 	 */
 	public static void main(String[] args) {
 		String connected = "Connected";

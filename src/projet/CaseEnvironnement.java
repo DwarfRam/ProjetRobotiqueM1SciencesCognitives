@@ -9,14 +9,14 @@ import lejos.robotics.Color;
 
 /**
  * <b>
- * Classe permettant de définir l'environnement du robot (différentes cases de la carte)
+ * Classe permettant de definir l'environnement du robot (differentes cases de la carte).
  * </b>
  * 
  * <p>
- * Cette classe permet de paramétrer divers éléments correspondant aux différentes cases de la carte. 
- * Ces dernières sont définis par leur couleur, qui correspond à leur coût pour le robot, 
- * leur abscisse, et leur ordonnée. 
- * On indique également la taille des cases. 
+ * Cette classe permet de parametrer divers elements correspondant aux differentes cases de la carte. 
+ * Ces dernieres sont definies par leur couleur, qui correspond a leur cout pour le robot, 
+ * leur abscisse, et leur ordonnee. 
+ * On indique egalement la taille des cases. 
  * </p>
  * 
  *
@@ -31,8 +31,8 @@ public class CaseEnvironnement {
 	private int ord;
 	
 	/**
-	 * Permet de définir la couleur et les coordonnées des cases. 
-	 * Définit également le coût en fonction de la couleur (switch case)
+	 * Permet de definir la couleur et les coordonnees des cases. 
+	 * Definit egalement le cout en fonction de la couleur (switch case)
 	 * 
 	 * @param col Couleur de la case
 	 * @param x Abscisse de la case
@@ -73,7 +73,7 @@ public class CaseEnvironnement {
 	}
 	
 	/**
-	 * Définit la couleur de la case considérée. 
+	 * Definit la couleur de la case consideree. 
 	 * 
 	 * @param c : couleur de la case
 	 */
@@ -82,25 +82,25 @@ public class CaseEnvironnement {
 	}
 	
 	/**
-	 * Définit le coût de la case considérée. 
+	 * Definit le coût de la case consideree. 
 	 * 
-	 * @param cost : coût de la case
+	 * @param cost : cout de la case
 	 */
 	public void setCost (int cost){
 		this.cost = cost;
 	}
 	
 	/**
-	 * Retourne les coordonnées de la case considérée. 
+	 * Retourne les coordonnees de la case consideree. 
 	 * 
-	 * @return  Les coordonées de la case. 
+	 * @return  Les coordonees de la case. 
 	 */
 	public String getCase(){
 		return(Integer.toString(this.abs)+";"+Integer.toString(this.ord));
 	}
 		
 	/**
-	 * Retourne la couleur de la case considérée.
+	 * Retourne la couleur de la case consideree.
 	 * 
 	 * @return La couleur de la case. 
 	 */
@@ -109,7 +109,7 @@ public class CaseEnvironnement {
 	 }
 	
 	/**
-	 * Retourne l'abscisse de la case considérée. 
+	 * Retourne l'abscisse de la case considere. 
 	 * 
 	 * @return L'abscisse de la case. 
 	 */
@@ -120,9 +120,9 @@ public class CaseEnvironnement {
 	
 	
 	/**
-	 * Retourne l'ordonnée de la case considérée. 
+	 * Retourne l'ordonnée de la case consideree. 
 	 * 
-	 * @return L'ordonnée de la case. 
+	 * @return L'ordonnee de la case. 
 	 */
 	public int getOrd () {
 		return ord;

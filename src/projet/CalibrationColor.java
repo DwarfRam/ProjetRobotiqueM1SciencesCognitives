@@ -15,15 +15,15 @@ import lejos.robotics.subsumption.Behavior;
  * </b>
  *
  *<p>
- * Cette classe permet de calibrer le capteur couleur. Pour ce faire,différents seuils de couleur RGB ont été définis. 
- * Selon le code RGB renvoyé par le capteur lorsqu'il se trouve sur une case, une couleur sera définie via ces différents seuils. 
+ * Cette classe permet de calibrer le capteur couleur. Pour ce faire,differents seuils de couleur RGB ont ete definis. 
+ * Selon le code RGB renvoye par le capteur lorsqu'il se trouve sur une case, une couleur sera definie via ces differents seuils. 
  *</p>
  */
 public class CalibrationColor implements Behavior{
 	private CaseEnvironnement cas;
 	
 	/**
-	 * Méthode permettant la calibration du capteur couleur. 
+	 * Methode permettant la calibration du capteur couleur. 
 	 * Permet de calibrer 6 couleurs au total : 
 	 * <ul>
 	 * <li> Vert </li>

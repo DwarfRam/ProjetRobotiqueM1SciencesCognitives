@@ -50,7 +50,7 @@ public class StopRobot implements Behavior{
 	}
 	
 	/**
-	 * Ce qui est effectué lorsque le comportement est établi. 
+	 * Ce qui est effectue lorsque le comportement est etabli. 
 	 */
 	public void action() {
         LCD.clear();

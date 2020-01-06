@@ -10,7 +10,7 @@ import java.io.ObjectInputStream;
 ;
 /**
  * <b>
- * Cette classe permet de paramétrer l'envoi par bluetooth, côté récepteur. 
+ * Classe permettant de parametrer l'envoi par bluetooth, cote récepteur. 
  * </b>
  * 
  *
@@ -18,10 +18,10 @@ import java.io.ObjectInputStream;
 public class BluetoothReceptor {
 	private static byte[] environnement;
 	/**
-	 * Permet d'établir la connexion entre les deux appareils.  
-	 * Une fois la connexion établie, les données peuvent être reçues. 
+	 * Permet d'etablir la connexion entre les deux appareils.  
+	 * Une fois la connexion etablie, les donnees peuvent etre reçues. 
 	 * 
-	 * @param args : données à recevoir. 
+	 * @param args : donnees à recevoir. 
 	 */
 	
 	public static void main(String[] args) {

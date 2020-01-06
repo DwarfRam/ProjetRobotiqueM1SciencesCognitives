@@ -7,7 +7,7 @@ import lejos.hardware.lcd.LCD;
 
 /**
  * <b>
- * La classe Robot correspond � la classe permettant l'initialisation des robots. 
+ * Classe permettant l'initialisation des robots. 
  * </b>
  * 
  * <p>
@@ -99,7 +99,7 @@ public class Robot {
 	}
 	
 	/**
-	 * M�thode permettant � chaque robot, selon son �quipe, � conna�tre la moiti� de la carte qui lui correspond. 
+	 * Methode permettant a chaque robot, selon son equipe, de connaitre la moitie de la carte qui lui correspond. 
 	 * 
 	 * @see CaseEnvironnement (Classe)
 	 */
@@ -165,7 +165,7 @@ public class Robot {
 			this.environnement[1][6] = new CaseEnvironnement(2,1,6);			
 			this.environnement[2][6] = new CaseEnvironnement(1,2,6);
 			this.environnement[3][6] = new CaseEnvironnement(1,3,6);
-			this.environnement[4][6] = new CaseEnvironnement(6,4,6); 	// départ au nord est
+			this.environnement[4][6] = new CaseEnvironnement(6,4,6); 	// depart au nord est
 		}
 	}
 	
@@ -199,13 +199,13 @@ public class Robot {
 	        LCD.asyncRefresh();
 	        Button.waitForAnyPress();
 	        
-	        int coordoY = 0;						// variable servant a indiquer la coordonnée en x 
+	        int coordoY = 0;						// variable servant a indiquer la coordonnee en x 
             int elem =0;
             for (int i = 1; i < path.size();i++) {
             	String coordoAfficher = "";
             	coordoY += 1;
-            	for (int l =0;l<3;l++) {			// on affiche les coordonées par groupe de 3 pour ne pas dépasser sur l'écran
-            		Node n = path.get(elem);		// on cherche le node suivant retournée dans la liste retourné par la recherche de chemin
+            	for (int l =0;l<3;l++) {			// on affiche les coordonnees par groupe de 3 pour ne pas depasser sur l'ecran
+            		Node n = path.get(elem);		// on cherche le node suivant retourne dans la liste retourne par la recherche de chemin
             		coordoAfficher = coordoAfficher.concat("[" + n.x + "," + n.y + "]");
             		if ((elem+1)< path.size()) {
                 		elem += 1;
@@ -215,7 +215,7 @@ public class Robot {
             		}
             	}
         		LCD.drawString(coordoAfficher,0,coordoY);
-            	if ((path.get(path.size()-1)) == path.get(elem)) {	// si l'element qui est cours correspond au dernier élément de la liste on sort de la boucle
+            	if ((path.get(path.size()-1)) == path.get(elem)) {	// si l'element qui est cours correspond au dernier element de la liste on sort de la boucle
             		break;
             	}
 	        }
