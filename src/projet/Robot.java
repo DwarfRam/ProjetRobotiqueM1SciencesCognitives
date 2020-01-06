@@ -169,9 +169,13 @@ public class Robot {
 		}
 	}
 	
+	/**
+	 * Methode permettant a chaque robot, selon son equipe, de connaitre le chemin optimal vers la ville adverse. 
+	 * 
+	 * @see AStar (Classe)
+	 * @see Node (Classe)
+	 */
 	public void searchBestPath() {
-		// -1 = blocked
-        // 0+ = additional movement cost
         int[][] maze = {
             {1, 10, 1, 1, 1},
             {1, 10, 1, 1, 1},

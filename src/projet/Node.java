@@ -17,7 +17,7 @@ public class Node implements Comparable {
         this.g = g;
         this.h = h;
    }
-    // Compare by f value (g + h)
+    
     @Override
     public int compareTo(Object o) {
         Node that = (Node) o;

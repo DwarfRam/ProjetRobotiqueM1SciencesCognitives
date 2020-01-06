@@ -79,8 +79,4 @@ public class AStar {
        }
        Collections.sort(this.open);
    }
-   public String toString() {
-	   
-	   return("");
-   }
 }
