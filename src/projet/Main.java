@@ -86,7 +86,7 @@ public class Main {
 		EV3ColorSensor color = new EV3ColorSensor(SensorPort.S3);
 		float[] s = new float[4];							// 0..2 couleur, 3 ultrason
 		
-		Behavior[] bArray= new Behavior [3];				// tableau de 3 Behavior (= 3 comportements)
+		Behavior[] bArray= new Behavior [4];				// tableau de 3 Behavior (= 3 comportements)
 		
 		//Behavior bSearchLine = new SearchLine(pilot, color, ts);
 		//Behavior bFollowBlackLine = new FollowBlackLine(color, ts);
@@ -94,13 +94,13 @@ public class Main {
 		Behavior bStop = new StopRobot(color, s);
 		Behavior bObjectif1 = new Objectif1(warrior.getTeam(), pilot);
 		Behavior bCalibrationColor = new CalibrationColor();
-		Behavior bPath = new BestPath(warrior);
+		//Behavior bPath = new BestPath(warrior);
 
 		bArray[0] = bObjectif1;
-		bArray[1] = bPath;
-		bArray[2] = bCollision;
-		bArray[3] = bStop;
-		bArray[4] = bCalibrationColor;
+		//bArray[1] = bPath;
+		bArray[1] = bCollision;
+		bArray[2] = bStop;
+		bArray[3] = bCalibrationColor;
 		
 		Arbitrator arby= new Arbitrator(bArray);
 		LCD.clear();

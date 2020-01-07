@@ -47,12 +47,9 @@ public class Objectif2 implements Behavior{
 	 */
 	@Override
 	public void action() {
-
 		
 		BTConnector bt = new BTConnector();
 		BTConnection btc = bt.connect("00:16:53:43:4E:26", NXTConnection.PACKET);
-		
-		
 		
 		OutputStream os = btc.openOutputStream();
 		ObjectOutputStream oos = null;
